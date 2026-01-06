@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAD_Search.MainPage"
+             xmlns:src="clr-namespace:PAD_Search.ViewModels">
+
+    <ScrollView>
+        <StackLayout>
+            <Image x:Name="test"/>
+
+            <Grid x:Name="grid"
+              RowSpacing="10"
+              ColumnSpacing="10"
+              ColumnDefinitions="75,75,75,75,75"
+              Padding="12,20">
+            <!-- -->
+            <Frame WidthRequest="75" HeightRequest="75" Padding="0" Grid.Column="0" Grid.Row="0" CornerRadius="10">
+                <AbsoluteLayout Background="#686868">
+                    <Image Source="{src:ImageResource PAD_Search.Images.CARDS_001.PNG}"
+                           AbsoluteLayout.LayoutBounds="0.555555555,0.66666666,10,10"
+                           AbsoluteLayout.LayoutFlags="All"
+                           Aspect="Fill"/>
+
+                    <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                           AbsoluteLayout.LayoutBounds="0.166666666,0,7,4"
+                           AbsoluteLayout.LayoutFlags="All"
+                           Aspect="Fill"/>
+
+                    <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                           AbsoluteLayout.LayoutBounds="0.666666,0.333333,7,4"
+                           AbsoluteLayout.LayoutFlags="All"
+                           Aspect="Fill"/>
+
+                    <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                           AbsoluteLayout.LayoutBounds="0.5,0.666666,7,4"
+                           AbsoluteLayout.LayoutFlags="All"
+                           Aspect="Fill"/>
+                </AbsoluteLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TappedCommand}"/>
+                    </Frame.GestureRecognizers>
+            </Frame>
+
+            <!--
+            <Frame WidthRequest="80" HeightRequest="80" Padding="0" Grid.Column="1" Grid.Row="0" CornerRadius="10">
+                <AbsoluteLayout Background="#505050">
+                    <Image Source="{src:ImageResource PAD_Search.Images.CARDS_001.PNG}"
+                           AbsoluteLayout.LayoutBounds="0.555555555,0.777777777,10,10"
+                           AbsoluteLayout.LayoutFlags="All"
+                           Aspect="Fill"/>
+                </AbsoluteLayout>
+            </Frame>-->
+            <!-- -->
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

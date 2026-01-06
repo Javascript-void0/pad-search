@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\mon_en.json" />
+    <None Remove="Data\skill_en.json" />
+    <None Remove="Images\CARDFRAME2.png" />
+    <None Remove="Images\CARDS_001.PNG" />
+    <None Remove="Images\CARDS_002.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\mon_en.json" />
+    <EmbeddedResource Include="Data\skill_en.json" />
+    <EmbeddedResource Include="Images\CARDFRAME2.png" />
+    <EmbeddedResource Include="Images\CARDS_001.PNG" />
+    <EmbeddedResource Include="Images\CARDS_002.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="10.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+</Project>
