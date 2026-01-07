@@ -17,6 +17,11 @@
     <None Remove="Images\CARDFRAME2.png" />
     <None Remove="Images\CARDS_001.PNG" />
     <None Remove="Images\CARDS_002.PNG" />
+    <None Remove="Images\CARDS_003.PNG" />
+    <None Remove="Images\CARDS_004.PNG" />
+    <None Remove="Images\CARDS_005.PNG" />
+    <None Remove="Images\CARDS_006.PNG" />
+    <None Remove="Images\dragon-totem.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +30,17 @@
     <EmbeddedResource Include="Images\CARDFRAME2.png" />
     <EmbeddedResource Include="Images\CARDS_001.PNG" />
     <EmbeddedResource Include="Images\CARDS_002.PNG" />
+    <EmbeddedResource Include="Images\CARDS_003.PNG" />
+    <EmbeddedResource Include="Images\CARDS_004.PNG" />
+    <EmbeddedResource Include="Images\CARDS_005.PNG" />
+    <EmbeddedResource Include="Images\CARDS_006.PNG" />
+    <EmbeddedResource Include="Images\dragon-totem.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="10.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>

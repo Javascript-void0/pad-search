@@ -4,55 +4,51 @@
              x:Class="PAD_Search.MainPage"
              xmlns:src="clr-namespace:PAD_Search.ViewModels">
 
-    <ScrollView>
-        <StackLayout>
-            <Image x:Name="test"/>
-
-            <Grid x:Name="grid"
-              RowSpacing="10"
-              ColumnSpacing="10"
-              ColumnDefinitions="75,75,75,75,75"
-              Padding="12,20">
+    <AbsoluteLayout>
+        <!--
+        <Image Source="{src:ImageResource PAD_Search.Images.dragon-totem.png}" 
+               Opacity="0.2"
+               Aspect="AspectFit"
+               AbsoluteLayout.LayoutBounds="0.5,0,1.5,1"
+               AbsoluteLayout.LayoutFlags="All"/>
+        -->
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout>
+                <Grid x:Name="grid"
+                    HorizontalOptions="Center"
+                    RowSpacing="15"
+                    ColumnSpacing="15"
+                    ColumnDefinitions="60,60,60,60,60"
+                    Padding="0,20">
             <!-- -->
-            <Frame WidthRequest="75" HeightRequest="75" Padding="0" Grid.Column="0" Grid.Row="0" CornerRadius="10">
-                <AbsoluteLayout Background="#686868">
-                    <Image Source="{src:ImageResource PAD_Search.Images.CARDS_001.PNG}"
-                           AbsoluteLayout.LayoutBounds="0.555555555,0.66666666,10,10"
-                           AbsoluteLayout.LayoutFlags="All"
-                           Aspect="Fill"/>
-
-                    <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
-                           AbsoluteLayout.LayoutBounds="0.166666666,0,7,4"
-                           AbsoluteLayout.LayoutFlags="All"
-                           Aspect="Fill"/>
-
-                    <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
-                           AbsoluteLayout.LayoutBounds="0.666666,0.333333,7,4"
-                           AbsoluteLayout.LayoutFlags="All"
-                           Aspect="Fill"/>
-
-                    <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
-                           AbsoluteLayout.LayoutBounds="0.5,0.666666,7,4"
-                           AbsoluteLayout.LayoutFlags="All"
-                           Aspect="Fill"/>
-                </AbsoluteLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TappedCommand}"/>
-                    </Frame.GestureRecognizers>
-            </Frame>
-
-            <!--
-            <Frame WidthRequest="80" HeightRequest="80" Padding="0" Grid.Column="1" Grid.Row="0" CornerRadius="10">
-                <AbsoluteLayout Background="#505050">
-                    <Image Source="{src:ImageResource PAD_Search.Images.CARDS_001.PNG}"
-                           AbsoluteLayout.LayoutBounds="0.555555555,0.777777777,10,10"
-                           AbsoluteLayout.LayoutFlags="All"
-                           Aspect="Fill"/>
-                </AbsoluteLayout>
-            </Frame>-->
-            <!-- -->
-            </Grid>
-        </StackLayout>
-    </ScrollView>
+                <Frame WidthRequest="60" HeightRequest="60" Padding="0" Grid.Column="0" Grid.Row="0" CornerRadius="10">
+                    <AbsoluteLayout Background="#686868">
+                        <Image Source="{src:ImageResource PAD_Search.Images.CARDS_001.PNG}"
+                            AbsoluteLayout.LayoutBounds="0.555555555,0.66666666,10,10"
+                            AbsoluteLayout.LayoutFlags="All"
+                            Aspect="Fill"/>
+    
+                        <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                            AbsoluteLayout.LayoutBounds="0.166666666,0,7,4"
+                            AbsoluteLayout.LayoutFlags="All"
+                            Aspect="Fill"/>
+    
+                        <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                            AbsoluteLayout.LayoutBounds="0.666666,0.333333,7,4"
+                            AbsoluteLayout.LayoutFlags="All"
+                            Aspect="Fill"/>
+    
+                        <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                            AbsoluteLayout.LayoutBounds="0.5,0.666666,7,4"
+                            AbsoluteLayout.LayoutFlags="All"
+                            Aspect="Fill"/>
+                    </AbsoluteLayout>
+                </Frame>
+    
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+            
+    </AbsoluteLayout>
 
 </ContentPage>
