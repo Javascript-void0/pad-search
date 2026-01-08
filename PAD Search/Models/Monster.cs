@@ -183,7 +183,6 @@ namespace PAD_Search.Models
         public bool HasSuperAwoken8 { get { return SuperAwakenings.Count >= 8; } }
         public bool HasSuperAwoken9 { get { return SuperAwakenings.Count >= 9; } }
         public bool HasSuperAwoken10 { get { return SuperAwakenings.Count >= 10; } }
-        private Rectangle superAwokenDefault = new Rectangle(1, 1, 3, 142);
         public Rectangle SuperAwoken1Bounds { get { return SuperAwokenBounds(1); } }
         public Rectangle SuperAwoken2Bounds { get { return SuperAwokenBounds(2); } }
         public Rectangle SuperAwoken3Bounds { get { return SuperAwokenBounds(3); } }
@@ -197,7 +196,7 @@ namespace PAD_Search.Models
 
         private Rectangle SuperAwokenBounds(int i)
         {
-            if (SuperAwakenings.Count < i) return superAwokenDefault;
+            if (SuperAwakenings.Count < i) return awokenDefault;
             var x = 0;
             var y = SuperAwakenings[i - 1];
             if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
@@ -248,6 +247,30 @@ namespace PAD_Search.Models
 
         //"gachaGroupsFlag": 0,
         //"badgeId": 0,
+
+        [JsonPropertyName("syncAwakening")]
+        public int? SyncAwakening { get; set; }
+
+        [JsonPropertyName("syncAwakeningConditions")]
+        public List<SyncAwakeningCondition> SyncAwakeningConditions { get; set; }
+
+        public bool HasSyncAwoken { get { return SyncAwakening != null; } }
+        public Rectangle SyncAwokenBounds
+        {
+            get
+            {
+                if (SyncAwakening == null) return awokenDefault;
+                var x = 0;
+                var y = SyncAwakening;
+                if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
+                return new Rectangle(x / 2.0, (double)(y / 141.0), 3, 142);
+            }
+        }
+
+        public int HideSuperAwoken { get { return SuperAwakenings.Count == 0 ? 0 : 200 + 10; } }
+        public int HideSyncAwoken { get { return SyncAwakening == null ? 0 : 40 + 2; } }
+
+
         //"otLangName": {
         //    "ja": "ティラ",
         //    "cht": "提拉",

@@ -178,87 +178,107 @@
                                             </Frame>
                                         </StackLayout>
 
-                                        <!-- super awoken -->
                                         <StackLayout Orientation="Horizontal" Spacing="1">
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken1}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken1Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                            <!-- super awoken -->
+                                            <StackLayout Orientation="Horizontal" Spacing="1" WidthRequest="{Binding HideSuperAwoken}">
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken1}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken1Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
+    
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken2}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken2Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken2}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken2Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken3}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken3Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken3}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken3Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken4}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken4Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken4}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken4Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken5}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken5Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken5}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken5Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
-
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken6}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken6Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken6}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken6Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
                                             
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken7}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken7Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken7}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken7Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken8}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken8Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken8}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken8Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken9}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken9Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken9}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken9Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
-                                                <AbsoluteLayout>
-                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
-                                                        IsVisible="{Binding HasSuperAwoken10}"
-                                                        AbsoluteLayout.LayoutBounds="{Binding SuperAwoken10Bounds}"/>
-                                                </AbsoluteLayout>
-                                            </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSuperAwoken10}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SuperAwoken10Bounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
+                                            </StackLayout>
+
+                                            <!-- sync awoken -->
+                                            <StackLayout Orientation="Horizontal" Spacing="1" WidthRequest="{Binding HideSyncAwoken}">
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSyncAwoken}"
+                                                            AbsoluteLayout.LayoutBounds="1, 0, 3, 142"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
+                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                    <AbsoluteLayout>
+                                                        <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                            IsVisible="{Binding HasSyncAwoken}"
+                                                            AbsoluteLayout.LayoutBounds="{Binding SyncAwokenBounds}"/>
+                                                    </AbsoluteLayout>
+                                                </Frame>
+                                            </StackLayout>
                                         </StackLayout>
 
                                     </StackLayout>

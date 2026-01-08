@@ -45,19 +45,19 @@ namespace PAD_Search.ViewModels
             //skills.RemoveAll(skill => skill.Name.Equals(""));
 
             //List<int> types = new List<int>();
-            int max = -1;
-            int maxId = -1;
-            foreach (Monster m in monsters)
-            {
-                if (m.SuperAwakenings.Count > max)
-                {
-                    max = m.SuperAwakenings.Count;
-                    maxId = m.Id;
-                }
-            }
+            //int max = -1;
+            //int maxId = -1;
+            //foreach (Monster m in monsters)
+            //{
+            //    if (m.SuperAwakenings.Count > max)
+            //    {
+            //        max = m.SuperAwakenings.Count;
+            //        maxId = m.Id;
+            //    }
+            //}
             //foreach (int x in types) Debug.WriteLine(x);
-            Debug.WriteLine(max);
-            Debug.WriteLine(maxId);
+            //Debug.WriteLine(max);
+            //Debug.WriteLine(maxId);
 
             for (int i = 0; i < 50; i++)
                 defaultLoaded.Add(monsters[i]);
