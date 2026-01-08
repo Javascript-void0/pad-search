@@ -2,9 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAD_Search.MainPage"
-             xmlns:src="clr-namespace:PAD_Search.ViewModels">
-
-    <AbsoluteLayout>
+             xmlns:src="clr-namespace:PAD_Search.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="PAD Search" BackgroundColor="#303030" NavigationPage.HasNavigationBar="False">
         <!--
         <Image Source="{src:ImageResource PAD_Search.Images.dragon-totem.png}" 
                Opacity="0.2"
@@ -12,43 +11,89 @@
                AbsoluteLayout.LayoutBounds="0.5,0,1.5,1"
                AbsoluteLayout.LayoutFlags="All"/>
         -->
-        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-            <StackLayout>
-                <Grid x:Name="grid"
-                    HorizontalOptions="Center"
-                    RowSpacing="15"
-                    ColumnSpacing="15"
-                    ColumnDefinitions="60,60,60,60,60"
-                    Padding="0,20">
-            <!-- -->
-                <Frame WidthRequest="60" HeightRequest="60" Padding="0" Grid.Column="0" Grid.Row="0" CornerRadius="10">
-                    <AbsoluteLayout Background="#686868">
-                        <Image Source="{src:ImageResource PAD_Search.Images.CARDS_001.PNG}"
-                            AbsoluteLayout.LayoutBounds="0.555555555,0.66666666,10,10"
-                            AbsoluteLayout.LayoutFlags="All"
-                            Aspect="Fill"/>
-    
-                        <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
-                            AbsoluteLayout.LayoutBounds="0.166666666,0,7,4"
-                            AbsoluteLayout.LayoutFlags="All"
-                            Aspect="Fill"/>
-    
-                        <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
-                            AbsoluteLayout.LayoutBounds="0.666666,0.333333,7,4"
-                            AbsoluteLayout.LayoutFlags="All"
-                            Aspect="Fill"/>
-    
-                        <Image Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
-                            AbsoluteLayout.LayoutBounds="0.5,0.666666,7,4"
-                            AbsoluteLayout.LayoutFlags="All"
-                            Aspect="Fill"/>
-                    </AbsoluteLayout>
-                </Frame>
-    
-                </Grid>
-            </StackLayout>
-        </ScrollView>
-            
-    </AbsoluteLayout>
+    <StackLayout Spacing="0">
+        <StackLayout Orientation="Horizontal" Padding="15,15,15,15" Spacing="15" BackgroundColor="#202020">
+            <Entry x:Name="searchbar" Placeholder="Search" PlaceholderColor="Gray" FontSize="18" TextColor="Gray"
+                   Margin="0" HorizontalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
+            <Frame CornerRadius="7" BackgroundColor="#20000000" Padding="0" HeightRequest="50" WidthRequest="50" HorizontalOptions="End">
+            </Frame>
+        </StackLayout>
 
+        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}"
+                  SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True">
+            <ListView.Header>
+                <Frame HeightRequest="10" BackgroundColor="Transparent" Margin="0" Padding="0"/>
+            </ListView.Header>
+            <ListView.Footer>
+                <Frame HeightRequest="10" BackgroundColor="Transparent" Margin="0" Padding="0"/>
+            </ListView.Footer>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="#141414" Margin="15,7.5,15,7.5" Padding="10" CornerRadius="10" VerticalOptions="Fill">
+                            <StackLayout Spacing="10">
+                                <StackLayout HeightRequest="15" Orientation="Horizontal">
+                                    <Label Text="{Binding Id, StringFormat='#{0}'}" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Name}" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding Rarity, StringFormat='★{0}'}" HorizontalOptions="End"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HeightRequest="80" Spacing="10">
+                                    <Frame WidthRequest="80" HeightRequest="80" Padding="0" 
+                                        CornerRadius="7" VerticalOptions="Start">
+                                        <AbsoluteLayout Background="#686868">
+                                            <forms:CachedImage Source="{Binding ImageFile}"
+                                                Aspect="Fill"
+                                                AbsoluteLayout.LayoutBounds="{Binding ImageBounds}"
+                                                AbsoluteLayout.LayoutFlags="All"/>
+
+                                            <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                                                Aspect="Fill"
+                                                AbsoluteLayout.LayoutBounds="{Binding FrameBounds}"
+                                                AbsoluteLayout.LayoutFlags="All"/>
+
+                                            <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                                                IsVisible="{Binding HasSub}"
+                                                Aspect="Fill"
+                                                AbsoluteLayout.LayoutBounds="{Binding FrameBounds1}"
+                                                AbsoluteLayout.LayoutFlags="All"/>
+
+                                            <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                                                IsVisible="{Binding HasSub2}"
+                                                Aspect="Fill"
+                                                AbsoluteLayout.LayoutBounds="{Binding FrameBounds2}"
+                                                AbsoluteLayout.LayoutFlags="All"/>
+                                        </AbsoluteLayout>
+                                    </Frame>
+
+                                    <Frame BackgroundColor="#1d1d1d" WidthRequest="50" Margin="0" Padding="7" CornerRadius="7">
+                                        <StackLayout Spacing="0" Margin="1">
+                                            <Label Text="{Binding Hp.Max}" HorizontalOptions="End" FontSize="17" VerticalOptions="Start"/>
+                                            <Label Text="{Binding Atk.Max}" HorizontalOptions="End" FontSize="17" VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding Rcv.Max}" HorizontalOptions="End" FontSize="17" VerticalOptions="End"/>
+                                        </StackLayout>
+                                    </Frame>
+
+                                </StackLayout>
+
+                                <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasActiveSkill}">
+                                    <StackLayout>
+                                        <Label Text="{Binding ActiveSkillName, StringFormat='AS: {0}'}"/>
+                                        <Label Text="{Binding ActiveSkillDescription}"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasLeaderSkill}">
+                                    <StackLayout>
+                                        <Label Text="{Binding LeaderSkillName, StringFormat='LS: {0}'}"/>
+                                        <Label Text="{Binding LeaderSkillDescription}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

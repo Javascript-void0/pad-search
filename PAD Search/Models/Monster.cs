@@ -1,12 +1,129 @@
-﻿using System;
+﻿using FFImageLoading.Work;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+using Xamarin.Forms;
 
 namespace PAD_Search.Models
 {
     internal class Monster
     {
+        private int imageCols = 10;
+        public static List<Skill> skills = new List<Skill>();
+        public Rectangle ImageBounds
+        {
+            get
+            {
+                var i = Id - 1;
+                var imageY = (int)Math.Floor(i%100 / (double)imageCols);
+                var imageX = i % imageCols;
+                return new Rectangle(imageX / 9.0, imageY / 9.0, imageCols, imageCols);
+            }
+        }
+
+        public Rectangle FrameBounds
+        {
+            get
+            {
+                var frameImageX = Attrs[0];
+                var frameImageY = 0;
+                return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
+            }
+        }
+
+        public Rectangle FrameBounds1
+        {
+            get
+            {
+                if (Attrs.Count < 2) return new Rectangle(1, 1, 7, 4);
+                var frameImageX = Attrs[1];
+                var frameImageY = 1;
+                return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
+            }
+        }
+
+        public Rectangle FrameBounds2
+        {
+            get
+            {
+                if (Attrs.Count < 3) return new Rectangle(1, 1, 7, 4);
+                var frameImageX = Attrs[2];
+                var frameImageY = 2;
+                return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
+            }
+        }
+
+        private string imageFilePre = "PAD_Search.Images.CARDS_"; // CARDS_001.png
+        public Xamarin.Forms.ImageSource ImageFile 
+        {
+            get
+            {
+                var i = Id - 1;
+                var imageFileName = imageFilePre + ("" + (int)(Math.Floor(i / 100.0) + 1)).PadLeft(3, '0') + ".PNG";
+                return Xamarin.Forms.ImageSource.FromResource(imageFileName);
+            }
+        }
+
+        public bool HasSub
+        {
+            get { return Attrs.Count >= 2; }
+        }
+
+        public bool HasSub2
+        {
+            get { return Attrs.Count >= 3; }
+        }
+
+        public bool HasActiveSkill
+        {
+            get
+            {
+                return ActiveSkillId != 0;
+            }
+        }
+
+        public bool HasLeaderSkill
+        {
+            get
+            {
+                return LeaderSkillId != 0;
+            }
+        }
+
+        public string ActiveSkillName
+        {
+            get
+            {
+                return skills[ActiveSkillId].Name;
+            }
+        }
+
+        public string ActiveSkillDescription
+        {
+            get
+            {
+                return skills[ActiveSkillId].Description;
+            }
+        }
+
+        public string LeaderSkillName
+        {
+            get
+            {
+                return skills[LeaderSkillId].Name;
+            }
+        }
+
+        public string LeaderSkillDescription
+        {
+            get
+            {
+                return skills[LeaderSkillId].Description;
+            }
+        }
+
+
         // TODO: Enum?
         [JsonPropertyName("attrs")]
         public List<int> Attrs { get; set; }

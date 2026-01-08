@@ -10,7 +10,10 @@ namespace PAD_Search
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#202020")
+            };
         }
 
         protected override void OnStart()

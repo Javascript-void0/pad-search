@@ -14,17 +14,20 @@ namespace PAD_Search.Models
         public string Name { get; set; }
 
         [JsonPropertyName("description")]
-        private string Description { get; set; }
+        public string Description { get; set; }
 
         // TODO: Enum?
+        // 233 -> skill evolves stage 1 -> stage 2 -> stage 1
+        // 232 -> skill evolves stage 1 -> stage 2
+        // 202 -> changes form
         [JsonPropertyName("type")]
-        private int Type { get; set; }
+        public int Type { get; set; }
 
         [JsonPropertyName("maxLevel")]
-        private int MaxLevel { get; set; }
+        public int MaxLevel { get; set; }
 
         [JsonPropertyName("initialCooldown")]
-        private int InitialCooldown { get; set; }
+        public int InitialCooldown { get; set; }
 
         //"unk": "",
         //"params": [
