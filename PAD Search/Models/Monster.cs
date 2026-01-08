@@ -1,6 +1,7 @@
 ﻿using FFImageLoading.Work;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json.Serialization;
 using Xamarin.Forms;
@@ -11,6 +12,7 @@ namespace PAD_Search.Models
     {
         private int imageCols = 10;
         public static List<Skill> skills = new List<Skill>();
+        private Rectangle frameDefaultBounds = new Rectangle(1, 1, 7, 4);
         public Rectangle ImageBounds
         {
             get
@@ -22,36 +24,15 @@ namespace PAD_Search.Models
             }
         }
 
-        public Rectangle FrameBounds
+        public Rectangle FrameBounds1 { get { return FrameBounds(1); } }
+        public Rectangle FrameBounds2 { get { return FrameBounds(2); } }
+        public Rectangle FrameBounds3 { get { return FrameBounds(3); } }
+        private Rectangle FrameBounds(int i)
         {
-            get
-            {
-                var frameImageX = Attrs[0];
-                var frameImageY = 0;
-                return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
-            }
-        }
-
-        public Rectangle FrameBounds1
-        {
-            get
-            {
-                if (Attrs.Count < 2) return new Rectangle(1, 1, 7, 4);
-                var frameImageX = Attrs[1];
-                var frameImageY = 1;
-                return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
-            }
-        }
-
-        public Rectangle FrameBounds2
-        {
-            get
-            {
-                if (Attrs.Count < 3) return new Rectangle(1, 1, 7, 4);
-                var frameImageX = Attrs[2];
-                var frameImageY = 2;
-                return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
-            }
+            if (Attrs.Count < i) return frameDefaultBounds;
+            var frameImageX = Attrs[i - 1];
+            var frameImageY = i - 1;
+            return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
         }
 
         private string imageFilePre = "PAD_Search.Images.CARDS_"; // CARDS_001.png
@@ -65,72 +46,46 @@ namespace PAD_Search.Models
             }
         }
 
-        public bool HasSub
-        {
-            get { return Attrs.Count >= 2; }
-        }
+        public bool HasSub2 { get { return Attrs.Count >= 2; } }
+        public bool HasSub3 { get { return Attrs.Count >= 3; } }
 
-        public bool HasSub2
-        {
-            get { return Attrs.Count >= 3; }
-        }
+        public bool HasActiveSkill { get { return ActiveSkillId != 0; } }
 
-        public bool HasActiveSkill
-        {
-            get
-            {
-                return ActiveSkillId != 0;
-            }
-        }
+        public bool HasLeaderSkill { get { return LeaderSkillId != 0; } }
 
-        public bool HasLeaderSkill
-        {
-            get
-            {
-                return LeaderSkillId != 0;
-            }
-        }
+        public string ActiveSkillName { get { return skills[ActiveSkillId].Name; } }
 
-        public string ActiveSkillName
-        {
-            get
-            {
-                return skills[ActiveSkillId].Name;
-            }
-        }
+        public string ActiveSkillDescription { get { return skills[ActiveSkillId].Description; } }
 
-        public string ActiveSkillDescription
-        {
-            get
-            {
-                return skills[ActiveSkillId].Description;
-            }
-        }
+        public string LeaderSkillName { get { return skills[LeaderSkillId].Name; } }
 
-        public string LeaderSkillName
-        {
-            get
-            {
-                return skills[LeaderSkillId].Name;
-            }
-        }
-
-        public string LeaderSkillDescription
-        {
-            get
-            {
-                return skills[LeaderSkillId].Description;
-            }
-        }
+        public string LeaderSkillDescription { get { return skills[LeaderSkillId].Description; } }
 
 
-        // TODO: Enum?
         [JsonPropertyName("attrs")]
         public List<int> Attrs { get; set; }
 
-        // TODO: Enum?
         [JsonPropertyName("types")]
         public List<int> Types { get; set; }
+
+        public bool HasType2 { get { return Types.Count >= 2; } }
+
+        public bool HasType3 { get { return Types.Count >= 3; } }
+
+        private Rectangle typeDefaultBounds = new Rectangle(1, 1, 2, 16);
+        public Rectangle Type1Bounds { get { return TypeBounds(1); } }
+        public Rectangle Type2Bounds { get { return TypeBounds(2); } }
+        public Rectangle Type3Bounds { get { return TypeBounds(3); } }
+        private Rectangle TypeBounds(int i)
+        {
+            if (Types.Count < i) return typeDefaultBounds;
+            var x = 0;
+            var y = Types[i - 1];
+            if (y == 12 || y == 9) x = 1;
+            return new Rectangle(x, y / 15.0, 2, 16);
+
+        }
+
 
         [JsonPropertyName("id")]
         public int Id { get; set; }
@@ -185,13 +140,69 @@ namespace PAD_Search.Models
         [JsonPropertyName("unevoMaterials")]
         public List<int> UnevoMaterials{ get; set; }
 
-        // TODO: Enum?
         [JsonPropertyName("awakenings")]
         public List<int> Awakenings { get; set; }
+        public bool HasAwoken1 { get { return Awakenings.Count >= 1; } }
+        public bool HasAwoken2 { get { return Awakenings.Count >= 2; } }
+        public bool HasAwoken3 { get { return Awakenings.Count >= 3; } }
+        public bool HasAwoken4 { get { return Awakenings.Count >= 4; } }
+        public bool HasAwoken5 { get { return Awakenings.Count >= 5; } }
+        public bool HasAwoken6 { get { return Awakenings.Count >= 6; } }
+        public bool HasAwoken7 { get { return Awakenings.Count >= 7; } }
+        public bool HasAwoken8 { get { return Awakenings.Count >= 8; } }
+        public bool HasAwoken9 { get { return Awakenings.Count >= 9; } }
+        private Rectangle awokenDefault = new Rectangle(1, 1, 3, 142);
+        public Rectangle Awoken1Bounds { get { return AwokenBounds(1); } }
+        public Rectangle Awoken2Bounds { get { return AwokenBounds(2); } }
+        public Rectangle Awoken3Bounds { get { return AwokenBounds(3); } }
+        public Rectangle Awoken4Bounds { get { return AwokenBounds(4); } }
+        public Rectangle Awoken5Bounds { get { return AwokenBounds(5); } }
+        public Rectangle Awoken6Bounds { get { return AwokenBounds(6); } }
+        public Rectangle Awoken7Bounds { get { return AwokenBounds(7); } }
+        public Rectangle Awoken8Bounds { get { return AwokenBounds(8); } }
+        public Rectangle Awoken9Bounds { get { return AwokenBounds(9); } }
 
-        // TODO: Enum?
+        private Rectangle AwokenBounds(int i)
+        {
+            if (Awakenings.Count < i) return awokenDefault;
+            var x = 0;
+            var y = Awakenings[i - 1];
+            if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
+            return new Rectangle(x / 2.0, y / 141.0, 3, 142);
+        }
+
         [JsonPropertyName("superAwakenings")]
         public List<int> SuperAwakenings { get; set; }
+        public bool HasSuperAwoken1 { get { return SuperAwakenings.Count >= 1; } }
+        public bool HasSuperAwoken2 { get { return SuperAwakenings.Count >= 2; } }
+        public bool HasSuperAwoken3 { get { return SuperAwakenings.Count >= 3; } }
+        public bool HasSuperAwoken4 { get { return SuperAwakenings.Count >= 4; } }
+        public bool HasSuperAwoken5 { get { return SuperAwakenings.Count >= 5; } }
+        public bool HasSuperAwoken6 { get { return SuperAwakenings.Count >= 6; } }
+        public bool HasSuperAwoken7 { get { return SuperAwakenings.Count >= 7; } }
+        public bool HasSuperAwoken8 { get { return SuperAwakenings.Count >= 8; } }
+        public bool HasSuperAwoken9 { get { return SuperAwakenings.Count >= 9; } }
+        public bool HasSuperAwoken10 { get { return SuperAwakenings.Count >= 10; } }
+        private Rectangle superAwokenDefault = new Rectangle(1, 1, 3, 142);
+        public Rectangle SuperAwoken1Bounds { get { return SuperAwokenBounds(1); } }
+        public Rectangle SuperAwoken2Bounds { get { return SuperAwokenBounds(2); } }
+        public Rectangle SuperAwoken3Bounds { get { return SuperAwokenBounds(3); } }
+        public Rectangle SuperAwoken4Bounds { get { return SuperAwokenBounds(4); } }
+        public Rectangle SuperAwoken5Bounds { get { return SuperAwokenBounds(5); } }
+        public Rectangle SuperAwoken6Bounds { get { return SuperAwokenBounds(6); } }
+        public Rectangle SuperAwoken7Bounds { get { return SuperAwokenBounds(7); } }
+        public Rectangle SuperAwoken8Bounds { get { return SuperAwokenBounds(8); } }
+        public Rectangle SuperAwoken9Bounds { get { return SuperAwokenBounds(9); } }
+        public Rectangle SuperAwoken10Bounds { get { return SuperAwokenBounds(10); } }
+
+        private Rectangle SuperAwokenBounds(int i)
+        {
+            if (SuperAwakenings.Count < i) return superAwokenDefault;
+            var x = 0;
+            var y = SuperAwakenings[i - 1];
+            if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
+            return new Rectangle(x / 2.0, y / 141.0, 3, 142);
+        }
 
         [JsonPropertyName("evoRootId")]
         public int EvoRootId { get; set; }

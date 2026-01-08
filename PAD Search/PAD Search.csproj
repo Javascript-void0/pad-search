@@ -14,6 +14,7 @@
   <ItemGroup>
     <None Remove="Data\mon_en.json" />
     <None Remove="Data\skill_en.json" />
+    <None Remove="Images\awoken.png" />
     <None Remove="Images\CARDFRAME2.png" />
     <None Remove="Images\CARDS_001.PNG" />
     <None Remove="Images\CARDS_002.PNG" />
@@ -22,11 +23,13 @@
     <None Remove="Images\CARDS_005.PNG" />
     <None Remove="Images\CARDS_006.PNG" />
     <None Remove="Images\dragon-totem.png" />
+    <None Remove="Images\type.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Data\mon_en.json" />
     <EmbeddedResource Include="Data\skill_en.json" />
+    <EmbeddedResource Include="Images\awoken.png" />
     <EmbeddedResource Include="Images\CARDFRAME2.png" />
     <EmbeddedResource Include="Images\CARDS_001.PNG" />
     <EmbeddedResource Include="Images\CARDS_002.PNG" />
@@ -35,6 +38,7 @@
     <EmbeddedResource Include="Images\CARDS_005.PNG" />
     <EmbeddedResource Include="Images\CARDS_006.PNG" />
     <EmbeddedResource Include="Images\dragon-totem.png" />
+    <EmbeddedResource Include="Images\type.png" />
   </ItemGroup>
 
   <ItemGroup>
