@@ -22,6 +22,10 @@
     <None Remove="Images\CARDS_004.PNG" />
     <None Remove="Images\CARDS_005.PNG" />
     <None Remove="Images\CARDS_006.PNG" />
+    <None Remove="Images\CARDS_007.PNG" />
+    <None Remove="Images\CARDS_008.PNG" />
+    <None Remove="Images\CARDS_009.PNG" />
+    <None Remove="Images\CARDS_010.PNG" />
     <None Remove="Images\dragon-totem.png" />
     <None Remove="Images\type.png" />
   </ItemGroup>
@@ -37,6 +41,10 @@
     <EmbeddedResource Include="Images\CARDS_004.PNG" />
     <EmbeddedResource Include="Images\CARDS_005.PNG" />
     <EmbeddedResource Include="Images\CARDS_006.PNG" />
+    <EmbeddedResource Include="Images\CARDS_007.PNG" />
+    <EmbeddedResource Include="Images\CARDS_008.PNG" />
+    <EmbeddedResource Include="Images\CARDS_009.PNG" />
+    <EmbeddedResource Include="Images\CARDS_010.PNG" />
     <EmbeddedResource Include="Images\dragon-totem.png" />
     <EmbeddedResource Include="Images\type.png" />
   </ItemGroup>
