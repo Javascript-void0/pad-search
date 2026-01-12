@@ -46,7 +46,12 @@ namespace PAD_Search
             string prev = searchbar.Text;
 
             if (prev == "" || prev == null)
+            {
                 viewModel.LoadDefaultMonsters();
+                clearButton.IsVisible = false;
+            }
+            else
+                clearButton.IsVisible = true;
 
             await Task.Delay(500);
 
@@ -58,6 +63,14 @@ namespace PAD_Search
             // scroll back up
             if (viewModel.LoadedMonsters.FirstOrDefault() != null)
                 list.ScrollTo(viewModel.LoadedMonsters.First(), ScrollToPosition.Start, false);
+
+        }
+
+        private void Clear_Button_Clicked(object sender, EventArgs e)
+        {
+            viewModel.LoadDefaultMonsters();
+            searchbar.Text = string.Empty;
+            clearButton.IsVisible = false;
         }
     }
 }

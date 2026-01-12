@@ -18,18 +18,26 @@
                AbsoluteLayout.LayoutFlags="All"/>
         -->
     <StackLayout Spacing="0">
-        <StackLayout Orientation="Horizontal" Padding="15,15,15,15" Spacing="15" BackgroundColor="#202020">
+        <StackLayout Orientation="Horizontal" Padding="15,15,15,15" Spacing="8" BackgroundColor="#202020" HeightRequest="50">
+            <StackLayout.Resources>
+                <Style TargetType="ImageButton">
+                    <Setter Property="Aspect" Value="AspectFit"/>
+                    <Setter Property="WidthRequest" Value="48"/>
+                    <Setter Property="Padding" Value="15,0"/>
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </StackLayout.Resources>
             <Entry x:Name="searchbar" Placeholder="Search" PlaceholderColor="Gray" FontSize="18" TextColor="Gray"
                    Margin="0" HorizontalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
-            <Button Text="Clear"/>
-            <Button Text="Filter"/>
+            <ImageButton x:Name="clearButton" Source="{src:ImageResource PAD_Search.Images.square-x.png}" IsVisible="false" Clicked="Clear_Button_Clicked"/>
+            <ImageButton Source="{src:ImageResource PAD_Search.Images.filter.png}"/>
             <!--
             <Frame CornerRadius="7" BackgroundColor="#20000000" Padding="0" HeightRequest="50" WidthRequest="50" HorizontalOptions="End">
             </Frame>
             -->
         </StackLayout>
 
-        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}" 
+        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}"
                   SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True"><!-- CachingStrategy="RecycleElement" -->
             <ListView.Header>
                 <Frame HeightRequest="10" BackgroundColor="Transparent" Margin="0" Padding="0"/>
@@ -57,7 +65,6 @@
                                         <AbsoluteLayout Background="#686868">
                                             <forms:CachedImage Source="{Binding ImageFile}"
                                                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                                                AbsoluteLayout.LayoutFlags="All"
                                                 Transformations="{Binding ImageTransform}"/>
 
                                             <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
