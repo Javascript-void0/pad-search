@@ -29,8 +29,8 @@ namespace PAD_Search.ViewModels
             }
         }
 
-        private string jsonMonFileName = "PAD_Search.Data.mon_en.json";
-        private string jsonSkillFileName = "PAD_Search.Data.skill_en.json";
+        private string jsonMonFileName = "PAD_Search.PADDashFormation.monsters_info.mon_en.json";
+        private string jsonSkillFileName = "PAD_Search.PADDashFormation.monsters_info.skill_en.json";
 
         public ViewModel()
         {
@@ -44,6 +44,8 @@ namespace PAD_Search.ViewModels
             //skills.RemoveAll(skill => skill.Name.Equals("無し"));
             //skills.RemoveAll(skill => skill.Name.Equals(""));
 
+
+            // test
             //List<int> types = new List<int>();
             //int max = -1;
             //int maxId = -1;

@@ -60,7 +60,7 @@ namespace PAD_Search.Models
             return new Rectangle(frameImageX / 6.0, frameImageY / 3.0, 7, 4);
         }
 
-        private string imageFilePre = "PAD_Search.Images.CARDS_"; // CARDS_001.png
+        private string imageFilePre = "PAD_Search.PADDashFormation.images.cards_en.CARDS_"; // CARDS_001.png
         public Xamarin.Forms.ImageSource ImageFile 
         {
             get
