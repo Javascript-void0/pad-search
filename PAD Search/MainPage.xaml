@@ -25,7 +25,7 @@
             </Frame>
         </StackLayout>
 
-        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}"
+        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}" CachingStrategy="RecycleElement"
                   SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True">
             <ListView.Header>
                 <Frame HeightRequest="10" BackgroundColor="Transparent" Margin="0" Padding="0"/>
@@ -52,7 +52,9 @@
                                         CornerRadius="7" VerticalOptions="Start">
                                         <AbsoluteLayout Background="#686868">
                                             <forms:CachedImage Source="{Binding ImageFile}"
-                                                AbsoluteLayout.LayoutBounds="{Binding ImageBounds}"/>
+                                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                                AbsoluteLayout.LayoutFlags="All"
+                                                Transformations="{Binding ImageTransform}"/>
 
                                             <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
                                                 AbsoluteLayout.LayoutBounds="{Binding FrameBounds1}"/>

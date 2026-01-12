@@ -1,4 +1,5 @@
 ﻿using FFImageLoading.Forms;
+using FFImageLoading.Transformations;
 using PAD_Search.Models;
 using PAD_Search.ViewModels;
 using System;
@@ -13,9 +14,11 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
+using Xamarin.Forms.Xaml;
 
 namespace PAD_Search
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
 

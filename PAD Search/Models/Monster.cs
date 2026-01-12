@@ -1,4 +1,5 @@
-﻿using FFImageLoading.Work;
+﻿using FFImageLoading.Transformations;
+using FFImageLoading.Work;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +14,7 @@ namespace PAD_Search.Models
         private int imageCols = 10;
         public static List<Skill> skills = new List<Skill>();
         private Rectangle frameDefaultBounds = new Rectangle(1, 1, 7, 4);
+        // OLD
         public Rectangle ImageBounds
         {
             get
@@ -21,6 +23,29 @@ namespace PAD_Search.Models
                 var imageY = (int)Math.Floor(i%100 / (double)imageCols);
                 var imageX = i % imageCols;
                 return new Rectangle(imageX / 9.0, imageY / 9.0, imageCols, imageCols);
+            }
+        }
+
+        public List<ITransformation> ImageTransform
+        {
+            get
+            {
+                var i = Id - 1;
+                var row = (int)Math.Floor(i%100 / (double)imageCols);
+                var col = i % imageCols;
+                var centeredRow = -(5 - row);
+                var centeredCol = -(5 - col);
+
+                var relativeCellSize = 0.099609375; // (96 + 6) / 1024
+                var relativeCenterOffset = 0.046875; // (1024 / 2) / 96
+                var yOffset = relativeCellSize * centeredRow + relativeCenterOffset;
+                var xOffset = relativeCellSize * centeredCol + relativeCenterOffset;
+
+                var zoom = 10.666667; // 1024 / 96
+                return new List<ITransformation>
+                {
+                    new CropTransformation(zoom, xOffset, yOffset, 1f, 1f)
+                };
             }
         }
 
