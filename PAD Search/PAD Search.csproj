@@ -29,6 +29,7 @@
     <None Remove="Images\CARDS_011.PNG" />
     <None Remove="Images\dragon-totem.png" />
     <None Remove="Images\type.png" />
+    <None Remove="PADDashFormation\images\cards_en\CARDS_001.PNG" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,7 @@
     <EmbeddedResource Include="Images\CARDS_011.PNG" />
     <EmbeddedResource Include="Images\dragon-totem.png" />
     <EmbeddedResource Include="Images\type.png" />
+    <EmbeddedResource Include="PADDashFormation\images\cards_en\CARDS_001.PNG" />
   </ItemGroup>
 
   <ItemGroup>

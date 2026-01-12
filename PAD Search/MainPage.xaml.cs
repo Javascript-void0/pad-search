@@ -18,7 +18,7 @@ using Xamarin.Forms.Xaml;
 
 namespace PAD_Search
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
 

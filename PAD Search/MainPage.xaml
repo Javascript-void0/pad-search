@@ -21,12 +21,16 @@
         <StackLayout Orientation="Horizontal" Padding="15,15,15,15" Spacing="15" BackgroundColor="#202020">
             <Entry x:Name="searchbar" Placeholder="Search" PlaceholderColor="Gray" FontSize="18" TextColor="Gray"
                    Margin="0" HorizontalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
+            <Button Text="Clear"/>
+            <Button Text="Filter"/>
+            <!--
             <Frame CornerRadius="7" BackgroundColor="#20000000" Padding="0" HeightRequest="50" WidthRequest="50" HorizontalOptions="End">
             </Frame>
+            -->
         </StackLayout>
 
-        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}" CachingStrategy="RecycleElement"
-                  SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True">
+        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}" 
+                  SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True"><!-- CachingStrategy="RecycleElement" -->
             <ListView.Header>
                 <Frame HeightRequest="10" BackgroundColor="Transparent" Margin="0" Padding="0"/>
             </ListView.Header>
