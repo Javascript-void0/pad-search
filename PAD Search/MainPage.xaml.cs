@@ -19,7 +19,7 @@ using Xamarin.Forms.Xaml;
 namespace PAD_Search
 {
     //[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
 
         private static int numCols = 5;
