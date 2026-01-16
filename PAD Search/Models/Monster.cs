@@ -11,6 +11,41 @@ namespace PAD_Search.Models
 {
     internal class Monster
     {
+        public HtmlWebViewSource Test
+        {
+            get
+            {
+                var html = @"
+<html>
+    <body>
+        <style>
+            :root { --size: 15 }
+            body { background-color: #1d1d1d }
+            span { font-size: var(--size); color: white }
+            .icon {
+                width: var(--size);
+                height: var(--size);
+                background-image: url('icon-orbs.png');
+                background-size: 200% 1000%;
+                background-position: 0% 22.222222%;
+                background-repeat: none;
+                aspect-ratio: 50 / 50;
+                display: inline-block;
+                color: transparent;
+            }
+        </style>
+        <span>" + new Random().Next(1, 100) + @"Removes {locks},\nchanges </span>
+        <span class=""icon"">.</span>
+        <span>{Jammers}{Poison}{Lethal Poison}{Bombs} to {Water}</span>
+    </body>
+</html>";
+                var source = new HtmlWebViewSource();
+                source.BaseUrl = "file:///android_asset/";
+                source.Html = html;
+                return source;
+            }
+        }
+
         private int imageCols = 10;
         public static List<Skill> skills = new List<Skill>();
         private Rectangle frameDefaultBounds = new Rectangle(1, 1, 7, 4);
@@ -75,16 +110,35 @@ namespace PAD_Search.Models
         public bool HasSub3 { get { return Attrs.Count >= 3; } }
 
         public bool HasActiveSkill { get { return ActiveSkillId != 0; } }
+        public string ActiveSkillName { get { return skills[ActiveSkillId].Name; } }
+        public string ActiveSkillDescription { get { return skills[ActiveSkillId].Description; } }
+        public int ActiveSkillMaxLevel { get { return skills[ActiveSkillId].MaxLevel; } }
+        public int ActiveSkillCooldown { get { return skills[ActiveSkillId].InitialCooldown - ActiveSkillMaxLevel + 1; } }
 
         public bool HasLeaderSkill { get { return LeaderSkillId != 0; } }
-
-        public string ActiveSkillName { get { return skills[ActiveSkillId].Name; } }
-
-        public string ActiveSkillDescription { get { return skills[ActiveSkillId].Description; } }
-
         public string LeaderSkillName { get { return skills[LeaderSkillId].Name; } }
-
         public string LeaderSkillDescription { get { return skills[LeaderSkillId].Description; } }
+        public Color LeaderSkillAttrColor
+        {
+            get
+            {
+                switch (Attrs[0])
+                {
+                    case 0:
+                        return Color.FromRgb(235, 131, 143);
+                    case 1:
+                        return Color.FromRgb(171, 209, 197);
+                    case 2:
+                        return Color.FromRgb(179, 165, 85);
+                    case 3:
+                        return Color.FromRgb(253, 209, 121);
+                    case 4:
+                        return Color.FromRgb(201, 165, 190);
+                    default:
+                        return Color.White;
+                }
+            }
+        }
 
 
         [JsonPropertyName("attrs")]

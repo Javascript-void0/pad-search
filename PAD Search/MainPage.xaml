@@ -301,15 +301,25 @@
                                 <!-- skills -->
                                 <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasActiveSkill}">
                                     <StackLayout>
-                                        <Label Text="{Binding ActiveSkillName, StringFormat='AS: {0}'}"/>
-                                        <Label Text="{Binding ActiveSkillDescription}"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding ActiveSkillName, StringFormat='AS: {0}'}" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="15"/>
+                                            <Label HorizontalOptions="End" HorizontalTextAlignment="End">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="Level: {0} / Turns: {1}">
+                                                        <Binding Path="ActiveSkillMaxLevel"/>
+                                                        <Binding Path="ActiveSkillCooldown"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                        </StackLayout>
+                                        <Label Text="{Binding ActiveSkillDescription}" FontSize="15"/>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasLeaderSkill}">
                                     <StackLayout>
-                                        <Label Text="{Binding LeaderSkillName, StringFormat='LS: {0}'}"/>
-                                        <Label Text="{Binding LeaderSkillDescription}"/>
+                                        <Label Text="{Binding LeaderSkillName, StringFormat='LS: {0}'}" FontAttributes="Bold" FontSize="15" TextColor="{Binding LeaderSkillAttrColor}"/>
+                                        <Label Text="{Binding LeaderSkillDescription}" FontSize="15"/>
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
