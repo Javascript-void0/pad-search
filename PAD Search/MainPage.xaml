@@ -1,17 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="PAD_Search.MainPage"
-            xmlns:src="clr-namespace:PAD_Search.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-            Title="PAD Search" BackgroundColor="#303030"
-            NavigationPage.HasNavigationBar="True" NavigationPage.HasBackButton="False"
-            SelectedTabColor="White" UnselectedTabColor="Gray" BarBackgroundColor="#202020">
-    <TabbedPage.Resources>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAD_Search.MainPage"
+             xmlns:src="clr-namespace:PAD_Search.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="PAD Search" BackgroundColor="#303030" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
         <Style TargetType="forms:CachedImage">
             <Setter Property="Aspect" Value="Fill"/>
             <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
         </Style>
-    </TabbedPage.Resources>
+    </ContentPage.Resources>
         <!--
         <Image Source="{src:ImageResource PAD_Search.Images.dragon-totem.png}" 
                Opacity="0.2"
@@ -19,9 +17,8 @@
                AbsoluteLayout.LayoutBounds="0.5,0,1.5,1"
                AbsoluteLayout.LayoutFlags="All"/>
         -->
-    <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" Padding="0,0,15,0" Spacing="8" Margin="0"
-                     BackgroundColor="#202020" HeightRequest="50">
+    <StackLayout Spacing="0">
+        <StackLayout Orientation="Horizontal" Padding="15,15,15,15" Spacing="8" BackgroundColor="#202020" HeightRequest="50">
             <StackLayout.Resources>
                 <Style TargetType="ImageButton">
                     <Setter Property="Aspect" Value="AspectFit"/>
@@ -39,11 +36,8 @@
             </Frame>
             -->
         </StackLayout>
-    </NavigationPage.TitleView>
-    
-    <ContentPage Title="Monsters">
-        <StackLayout Spacing="0">
-            <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}"
+
+        <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}"
                   SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True"><!-- CachingStrategy="RecycleElement" -->
             <ListView.Header>
                 <Frame HeightRequest="10" BackgroundColor="Transparent" Margin="0" Padding="0"/>
@@ -335,9 +329,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-    </ContentPage>
-
-    <ContentPage Title="Collabs">
-        <Label Text="Christmas"/>
-    </ContentPage>
-</TabbedPage>
+</ContentPage>
