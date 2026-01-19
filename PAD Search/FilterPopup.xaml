@@ -46,98 +46,17 @@
         </ControlTemplate>
 
         <Style TargetType="RadioButton">
-            <Setter Property="ControlTemplate"
-                    Value="{StaticResource RadioButtonTemplate}" />
+            <Setter Property="ControlTemplate" Value="{StaticResource RadioButtonTemplate}" />
         </Style>
     </pages:PopupPage.Resources>
     
-    <StackLayout Background="#202020" Margin="50" Padding="0">
+    <StackLayout Background="#202020" Margin="50" Padding="0" VerticalOptions="Center">
         <StackLayout Padding="10" VerticalOptions="FillAndExpand">
             <StackLayout x:Name="attributes">
-
-                
-                <Label Text="Any Attribute"/>
-                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="anyAttribute">
-                    <RadioButton Value="fire">
-                        <RadioButton.Content>
-                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
-                                <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="0,0,2,10"
-                                                       AbsoluteLayout.LayoutFlags="All"
-                                                       Aspect="AspectFill"/>
-                                </AbsoluteLayout>
-                            </Frame>
-                        </RadioButton.Content>
-                    </RadioButton>
-
-                    <RadioButton Value="water">
-                        <RadioButton.Content>
-                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
-                                <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="0,0.1111,2,10"
-                                                       AbsoluteLayout.LayoutFlags="All"/>
-                                </AbsoluteLayout>
-                            </Frame>
-                        </RadioButton.Content>
-                    </RadioButton>
-
-                    <RadioButton Value="wood">
-                        <RadioButton.Content>
-                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
-                                <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="0,0.2222,2,10"
-                                                       AbsoluteLayout.LayoutFlags="All"/>
-                                </AbsoluteLayout>
-                            </Frame>
-                        </RadioButton.Content>
-                    </RadioButton>
-
-                    <RadioButton Value="light">
-                        <RadioButton.Content>
-                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
-                                <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="0,0.3333,2,10"
-                                                       AbsoluteLayout.LayoutFlags="All"/>
-                                </AbsoluteLayout>
-                            </Frame>
-                        </RadioButton.Content>
-                    </RadioButton>
-
-                    <RadioButton Value="dark">
-                        <RadioButton.Content>
-                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
-                                <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="0,0.4444,2,10"
-                                                       AbsoluteLayout.LayoutFlags="All"/>
-                                </AbsoluteLayout>
-                            </Frame>
-                        </RadioButton.Content>
-                    </RadioButton>
-
-                    <RadioButton Value="none">
-                        <RadioButton.Content>
-                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
-                                <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
-                                                       AbsoluteLayout.LayoutFlags="All"/>
-                                </AbsoluteLayout>
-                            </Frame>
-                        </RadioButton.Content>
-                    </RadioButton>
-                </StackLayout>
-
-                
-                
                 
                 <Label Text="Attribute 1"/>
-                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute1">
-                    <RadioButton Value="fire">
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute1" HorizontalOptions="Center">
+                    <RadioButton Value="fire" x:Name="attr1fire">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -150,7 +69,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="water">
+                    <RadioButton Value="water" x:Name="attr1water">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -162,7 +81,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="wood">
+                    <RadioButton Value="wood" x:Name="attr1wood">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -174,7 +93,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="light">
+                    <RadioButton Value="light" x:Name="attr1light">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -186,7 +105,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="dark">
+                    <RadioButton Value="dark" x:Name="attr1dark">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -198,12 +117,12 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="none">
+                    <RadioButton Value="none" x:Name="attr1none">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.attrs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,1,2,7"
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                             </Frame>
@@ -216,8 +135,8 @@
                 
 
                 <Label Text="Attribute 2"/>
-                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute2">
-                    <RadioButton Value="fire">
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute2" HorizontalOptions="Center">
+                    <RadioButton Value="fire" x:Name="attr2fire">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -230,7 +149,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="water">
+                    <RadioButton Value="water" x:Name="attr2water">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -242,7 +161,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="wood">
+                    <RadioButton Value="wood" x:Name="attr2wood">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -254,7 +173,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="light">
+                    <RadioButton Value="light" x:Name="attr2light">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -266,7 +185,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="dark">
+                    <RadioButton Value="dark" x:Name="attr2dark">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -278,12 +197,12 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="none">
+                    <RadioButton Value="none" x:Name="attr2none">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.attrs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,1,2,7"
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                             </Frame>
@@ -297,8 +216,8 @@
                 
                 
                 <Label Text="Attribute 3"/>
-                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute3">
-                    <RadioButton Value="fire">
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute3" HorizontalOptions="Center">
+                    <RadioButton Value="fire" x:Name="attr3fire">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -311,7 +230,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="water">
+                    <RadioButton Value="water" x:Name="attr3water">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -323,7 +242,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="wood">
+                    <RadioButton Value="wood" x:Name="attr3wood">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -335,7 +254,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="light">
+                    <RadioButton Value="light" x:Name="attr3light">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -347,7 +266,7 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="dark">
+                    <RadioButton Value="dark" x:Name="attr3dark">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
@@ -359,12 +278,12 @@
                         </RadioButton.Content>
                     </RadioButton>
 
-                    <RadioButton Value="none">
+                    <RadioButton Value="none" x:Name="attr3none">
                         <RadioButton.Content>
                             <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                                 <AbsoluteLayout>
-                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
-                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.attrs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,1,2,7"
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                             </Frame>
@@ -375,9 +294,9 @@
 
 
 
-            <Label Text="Type" Margin="0,50,0,0"/>
-            <Grid x:Name="type" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
-                <RadioButton Value="god" Grid.Row="0" Grid.Column="0">
+            <Label Text="Type" Margin="0,20,0,0"/>
+            <Grid x:Name="type" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*" HorizontalOptions="Center">
+                <RadioButton Value="god" Grid.Row="0" Grid.Column="0" x:Name="god">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -389,7 +308,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="dragon" Grid.Row="0" Grid.Column="1">
+                <RadioButton Value="dragon" Grid.Row="0" Grid.Column="1" x:Name="dragon">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -401,7 +320,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="devil" Grid.Row="0" Grid.Column="2">
+                <RadioButton Value="devil" Grid.Row="0" Grid.Column="2" x:Name="devil">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -413,7 +332,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="machine" Grid.Row="0" Grid.Column="3">
+                <RadioButton Value="machine" Grid.Row="0" Grid.Column="3" x:Name="machine">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -425,7 +344,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="balanced" Grid.Row="0" Grid.Column="4">
+                <RadioButton Value="balanced" Grid.Row="0" Grid.Column="4" x:Name="balanced">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -437,7 +356,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="attacker" Grid.Row="0" Grid.Column="5">
+                <RadioButton Value="attacker" Grid.Row="0" Grid.Column="5" x:Name="attacker">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -449,7 +368,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="physical" Grid.Row="1" Grid.Column="0">
+                <RadioButton Value="physical" Grid.Row="1" Grid.Column="0" x:Name="physical">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -461,7 +380,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="healer" Grid.Row="1" Grid.Column="1">
+                <RadioButton Value="healer" Grid.Row="1" Grid.Column="1" x:Name="healer">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -473,7 +392,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="evoMaterial" Grid.Row="1" Grid.Column="2">
+                <RadioButton Value="evoMaterial" Grid.Row="1" Grid.Column="2" x:Name="evoMaterial">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -485,7 +404,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="awakenMaterial" Grid.Row="1" Grid.Column="3">
+                <RadioButton Value="awakenMaterial" Grid.Row="1" Grid.Column="3" x:Name="awakenMaterial">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -497,7 +416,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="enhanceMaterial" Grid.Row="1" Grid.Column="4">
+                <RadioButton Value="enhanceMaterial" Grid.Row="1" Grid.Column="4" x:Name="enhanceMaterial">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -509,7 +428,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Value="redeemableMaterial" Grid.Row="1" Grid.Column="5">
+                <RadioButton Value="redeemableMaterial" Grid.Row="1" Grid.Column="5" x:Name="redeemableMaterial">
                     <RadioButton.Content>
                         <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
                             <AbsoluteLayout>
@@ -526,7 +445,7 @@
             
         </StackLayout>
         <StackLayout Orientation="Horizontal" Spacing="10" Margin="10">
-            <Button Text="Reset" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Reset" HorizontalOptions="FillAndExpand" Clicked="Reset_Button_Clicked"/>
             <Button Text="Filter" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </StackLayout>

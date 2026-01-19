@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\attrs.png" />
     <None Remove="Images\awoken.png" />
     <None Remove="Images\CARDFRAME2.png" />
     <None Remove="Images\dragon-totem.png" />
@@ -156,6 +157,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\attrs.png" />
     <EmbeddedResource Include="Images\awoken.png" />
     <EmbeddedResource Include="Images\CARDFRAME2.png" />
     <EmbeddedResource Include="Images\dragon-totem.png" />
