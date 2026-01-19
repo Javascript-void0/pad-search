@@ -107,5 +107,11 @@ namespace PAD_Search
                 return source;
             }
         }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            int id = (int)((TappedEventArgs)e).Parameter - 1; // compensate for removing index 0 place holder
+            Navigation.PushAsync(new MonsterView(id));
+        }
     }
 }

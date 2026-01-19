@@ -11,10 +11,13 @@ namespace PAD_Search.ViewModels
 {
     class ViewModel : INotifyPropertyChanged
     {
-        private List<Monster> monsters = new List<Monster>();
-        private List<Monster> defaultLoaded = new List<Monster>();
+        private static List<Monster> monsters = new List<Monster>(); // list of everything
+        private static List<Monster> matched = new List<Monster>(); // for everything that matches search query
+        private static List<Monster> defaultLoaded = new List<Monster>();
+        private const byte maxLoaded = 50;
+        private static string lastSearch = "";
 
-        private ObservableCollection<Monster> _loadedMonsters;
+        private ObservableCollection<Monster> _loadedMonsters; // for subset of matches that are loaded (first 50)
         public ObservableCollection<Monster> LoadedMonsters
         {
             get { return _loadedMonsters; }
@@ -45,36 +48,34 @@ namespace PAD_Search.ViewModels
             //skills.RemoveAll(skill => skill.Name.Equals(""));
 
 
-            // test
-            //List<int> types = new List<int>();
-            //int max = -1;
-            //int maxId = -1;
-            //foreach (Monster m in monsters)
-            //{
-            //    if (m.SuperAwakenings.Count > max)
-            //    {
-            //        max = m.SuperAwakenings.Count;
-            //        maxId = m.Id;
-            //    }
-            //}
-            //foreach (int x in types) Debug.WriteLine(x);
-            //Debug.WriteLine(max);
-            //Debug.WriteLine(maxId);
-
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < maxLoaded; i++)
                 defaultLoaded.Add(monsters[i]);
+            //defaultLoaded = monsters;
+
             LoadedMonsters = new ObservableCollection<Monster>(defaultLoaded);
+        }
+
+        public List<Monster> matchInput(List<Monster> set, string input)
+        {
+            return new List<Monster>(
+                set.Where(x => x.Name.ToLower().Contains(input.ToLower()) || 
+                    ("" + x.Id).Equals(input))
+            );
         }
 
         public void SearchForMonsters(string input)
         {
-            LoadedMonsters = new ObservableCollection<Monster>(
-                monsters.Where( x => 
-                            x.Name.ToLower().Contains(input.ToLower()) || 
-                            ("" + x.Id).Equals(input))
-                        .Take(50) // limit to first 50
-                        .ToList()
+            if (input.Contains(lastSearch) && !lastSearch.Equals(""))
+                matched = matchInput(matched, input);
+            else
+                matched = matchInput(monsters, input);
+
+            LoadedMonsters = new ObservableCollection<Monster>( // take first 50
+                matched.Take(maxLoaded).ToList()
+                //matched.ToList()
             );
+
+            lastSearch = input;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -86,6 +87,11 @@ namespace PAD_Search.ViewModels
         public void LoadDefaultMonsters()
         {
             LoadedMonsters = new ObservableCollection<Monster>(defaultLoaded);
+        }
+
+        public static Monster GetMonster(int id)
+        {
+            return monsters[id];
         }
     }
 }

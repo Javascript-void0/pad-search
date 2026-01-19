@@ -49,6 +49,9 @@
                 <DataTemplate>
                     <ViewCell>
                         <Frame BackgroundColor="#141414" Margin="15,7.5,15,7.5" Padding="10" CornerRadius="10" VerticalOptions="Fill">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding Id}"/>
+                            </Frame.GestureRecognizers>
                             <StackLayout Spacing="10">
                                 <!-- top header -->
                                 <StackLayout HeightRequest="15" Orientation="Horizontal">
