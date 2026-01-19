@@ -16,6 +16,7 @@
     <None Remove="Images\CARDFRAME2.png" />
     <None Remove="Images\dragon-totem.png" />
     <None Remove="Images\filter.png" />
+    <None Remove="Images\icon-orbs.png" />
     <None Remove="Images\square-x.png" />
     <None Remove="Images\type.png" />
     <None Remove="PADDashFormation\images\cards_en\CARDS_001.PNG" />
@@ -159,6 +160,7 @@
     <EmbeddedResource Include="Images\CARDFRAME2.png" />
     <EmbeddedResource Include="Images\dragon-totem.png" />
     <EmbeddedResource Include="Images\filter.png" />
+    <EmbeddedResource Include="Images\icon-orbs.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -301,7 +303,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="System.Text.Json" Version="10.0.1" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
@@ -310,6 +314,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="FilterPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="MonsterView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -30,7 +30,7 @@
             <Entry x:Name="searchbar" Placeholder="Search" PlaceholderColor="Gray" FontSize="18" TextColor="Gray"
                    Margin="0" HorizontalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
             <ImageButton x:Name="clearButton" Source="{src:ImageResource PAD_Search.Images.square-x.png}" IsVisible="false" Clicked="Clear_Button_Clicked"/>
-            <ImageButton Source="{src:ImageResource PAD_Search.Images.filter.png}"/>
+            <ImageButton Source="{src:ImageResource PAD_Search.Images.filter.png}" Clicked="Filter_Button_Clicked"/>
             <!--
             <Frame CornerRadius="7" BackgroundColor="#20000000" Padding="0" HeightRequest="50" WidthRequest="50" HorizontalOptions="End">
             </Frame>

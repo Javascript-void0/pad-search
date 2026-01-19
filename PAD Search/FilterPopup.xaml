@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:src="clr-namespace:PAD_Search.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="PAD_Search.FilterPopup">
+
+    <pages:PopupPage.Resources>
+        <ControlTemplate x:Key="RadioButtonTemplate">
+            <Frame BackgroundColor="Transparent"
+                   HasShadow="False"
+                   HeightRequest="40"
+                   WidthRequest="40"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"
+                   Margin="0"
+                   Padding="0">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity"
+                                            Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity"
+                                            Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <Grid Margin="1">
+                    <Grid WidthRequest="18"
+                          HeightRequest="18"
+                          HorizontalOptions="End"
+                          VerticalOptions="Start">
+                    </Grid>
+                    <ContentPresenter />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="ControlTemplate"
+                    Value="{StaticResource RadioButtonTemplate}" />
+        </Style>
+    </pages:PopupPage.Resources>
+    
+    <StackLayout Background="#202020" Margin="50" Padding="0">
+        <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="attributes">
+
+                
+                <Label Text="Any Attribute"/>
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="anyAttribute">
+                    <RadioButton Value="fire">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"
+                                                       Aspect="AspectFill"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="water">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.1111,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="wood">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.2222,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="light">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="dark">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.4444,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="none">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+
+                
+                
+                
+                <Label Text="Attribute 1"/>
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute1">
+                    <RadioButton Value="fire">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"
+                                                       Aspect="AspectFill"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="water">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.1111,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="wood">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.2222,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="light">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="dark">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.4444,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="none">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+
+                
+                
+                
+
+                <Label Text="Attribute 2"/>
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute2">
+                    <RadioButton Value="fire">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"
+                                                       Aspect="AspectFill"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="water">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.1111,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="wood">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.2222,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="light">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="dark">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.4444,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="none">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+
+                
+                
+                
+                
+                
+                <Label Text="Attribute 3"/>
+                <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="attribute3">
+                    <RadioButton Value="fire">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"
+                                                       Aspect="AspectFill"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="water">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.1111,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="wood">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.2222,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="light">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="dark">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="0,0.4444,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <RadioButton Value="none">
+                        <RadioButton.Content>
+                            <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                                <AbsoluteLayout>
+                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-orbs.png}"
+                                                        AbsoluteLayout.LayoutBounds="1,0.3333,2,10"
+                                                       AbsoluteLayout.LayoutFlags="All"/>
+                                </AbsoluteLayout>
+                            </Frame>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+            </StackLayout>
+
+
+
+            <Label Text="Type" Margin="0,50,0,0"/>
+            <Grid x:Name="type" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <RadioButton Value="god" Grid.Row="0" Grid.Column="0">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.3333,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="dragon" Grid.Row="0" Grid.Column="1">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.2667,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="devil" Grid.Row="0" Grid.Column="2">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.4667,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="machine" Grid.Row="0" Grid.Column="3">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.5333,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="balanced" Grid.Row="0" Grid.Column="4">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.0667,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="attacker" Grid.Row="0" Grid.Column="5">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.4,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="physical" Grid.Row="1" Grid.Column="0">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.1333,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="healer" Grid.Row="1" Grid.Column="1">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.2,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="evoMaterial" Grid.Row="1" Grid.Column="2">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="awakenMaterial" Grid.Row="1" Grid.Column="3">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="1,0.8,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="enhanceMaterial" Grid.Row="1" Grid.Column="4">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,0.9333,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Value="redeemableMaterial" Grid.Row="1" Grid.Column="5">
+                    <RadioButton.Content>
+                        <Frame CornerRadius="1" Margin="0" Padding="0" BackgroundColor="Transparent">
+                            <AbsoluteLayout>
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="0,1,2,16"
+                                                   AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </Frame>
+                    </RadioButton.Content>
+                </RadioButton>
+
+            </Grid>
+
+            
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Spacing="10" Margin="10">
+            <Button Text="Reset" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Filter" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

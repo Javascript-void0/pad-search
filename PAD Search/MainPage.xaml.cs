@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
 using Xamarin.Forms.Xaml;
+using Rg.Plugins.Popup.Services;
 
 namespace PAD_Search
 {
@@ -26,10 +27,9 @@ namespace PAD_Search
         private static int gridSize = 60;
         private static int totalMonsters = 600;
         private static int totalRows = (int)Math.Ceiling((double)totalMonsters / numCols);
+        private FilterPopup filterPopup;
 
         private ViewModel viewModel { get; set; }
-
-
 
         public MainPage()
         {
@@ -38,6 +38,7 @@ namespace PAD_Search
 
             viewModel = new ViewModel();
             list.BindingContext = viewModel;
+            filterPopup = new FilterPopup();
         }
 
 
@@ -112,6 +113,12 @@ namespace PAD_Search
         {
             int id = (int)((TappedEventArgs)e).Parameter - 1; // compensate for removing index 0 place holder
             Navigation.PushAsync(new MonsterView(id));
+        }
+
+        private async void Filter_Button_Clicked(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(new FilterPopup());
+            await PopupNavigation.Instance.PushAsync(filterPopup);
         }
     }
 }

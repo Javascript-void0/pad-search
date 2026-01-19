@@ -18,8 +18,14 @@ namespace PAD_Search.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            // ffimageloading init
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             //CachedImageRenderer.InitImageViewHandler();
+
+            // Rg popup init
+            Rg.Plugins.Popup.Popup.Init(this);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             LoadApplication(new App());
             Window.SetStatusBarColor(Android.Graphics.Color.Argb(255, 32, 32, 32));
@@ -32,6 +38,11 @@ namespace PAD_Search.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
         }
     }
 }
