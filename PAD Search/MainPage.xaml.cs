@@ -23,12 +23,7 @@ namespace PAD_Search
     public partial class MainPage : ContentPage
     {
 
-        private static int numCols = 5;
-        private static int gridSize = 60;
-        private static int totalMonsters = 600;
-        private static int totalRows = (int)Math.Ceiling((double)totalMonsters / numCols);
         private FilterPopup filterPopup;
-
         private ViewModel viewModel { get; set; }
 
         public MainPage()

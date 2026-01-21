@@ -1,5 +1,6 @@
 ﻿using FFImageLoading.Transformations;
 using FFImageLoading.Work;
+using PAD_Search.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -246,7 +247,7 @@ namespace PAD_Search.Models
             if (Awakenings.Count < i) return awokenDefault;
             var x = 0;
             var y = Awakenings[i - 1];
-            if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
+            if (AwokenIdConverter.HasNAVersion(y)) x = 1;
             return new Rectangle(x / 2.0, y / 141.0, 3, 142);
         }
 

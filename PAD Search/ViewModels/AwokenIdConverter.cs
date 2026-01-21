@@ -10,12 +10,16 @@ namespace PAD_Search.ViewModels
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //return new Rectangle(0,0,3,142);
             var x = 0;
             var y = (int)parameter;
-            if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
+            if (HasNAVersion(y)) x = 1;
 
             return new Rectangle(x / 2.0, y / 141.0, 3, 142);
+        }
+
+        public static bool HasNAVersion(int id)
+        {
+            return id == 40 || id == 46 || id == 47 || id == 48 || id == 109;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

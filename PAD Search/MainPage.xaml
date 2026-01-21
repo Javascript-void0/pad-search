@@ -93,16 +93,27 @@
                                     </Frame>
 
                                     <StackLayout>
+                                        <StackLayout.Resources>
+                                            <ResourceDictionary>
+                                                <Style TargetType="Frame">
+                                                    <Setter Property="CornerRadius" Value="1"/>
+                                                    <Setter Property="HeightRequest" Value="20"/>
+                                                    <Setter Property="WidthRequest" Value="20"/>
+                                                    <Setter Property="Padding" Value="0"/>
+                                                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                                                </Style>
+                                            </ResourceDictionary>
+                                        </StackLayout.Resources>
                                         <!-- types -->
                                         <StackLayout Orientation="Horizontal" Spacing="1">
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
                                                         AbsoluteLayout.LayoutBounds="{Binding Type1Bounds}"/>
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}" 
                                                         IsVisible="{Binding HasType2}"
@@ -110,7 +121,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}" 
                                                         IsVisible="{Binding HasType3}"
@@ -121,7 +132,7 @@
 
                                         <!-- awoken -->
                                         <StackLayout Orientation="Horizontal" Spacing="1">
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken1}"
@@ -129,7 +140,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken2}"
@@ -137,7 +148,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken3}"
@@ -145,7 +156,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken4}"
@@ -153,7 +164,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken5}"
@@ -161,15 +172,15 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken6}"
                                                         AbsoluteLayout.LayoutBounds="{Binding Awoken6Bounds}"/>
                                                 </AbsoluteLayout>
                                             </Frame>
-                                            
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken7}"
@@ -177,7 +188,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken8}"
@@ -185,7 +196,7 @@
                                                 </AbsoluteLayout>
                                             </Frame>
 
-                                            <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                            <Frame>
                                                 <AbsoluteLayout>
                                                     <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                         IsVisible="{Binding HasAwoken9}"
@@ -197,15 +208,15 @@
                                         <StackLayout Orientation="Horizontal" Spacing="1">
                                             <!-- super awoken -->
                                             <StackLayout Orientation="Horizontal" Spacing="1" WidthRequest="{Binding HideSuperAwoken}">
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken1}"
                                                             AbsoluteLayout.LayoutBounds="{Binding SuperAwoken1Bounds}"/>
                                                     </AbsoluteLayout>
                                                 </Frame>
-    
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken2}"
@@ -213,7 +224,7 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken3}"
@@ -221,7 +232,7 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken4}"
@@ -229,7 +240,7 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken5}"
@@ -237,15 +248,15 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken6}"
                                                             AbsoluteLayout.LayoutBounds="{Binding SuperAwoken6Bounds}"/>
                                                     </AbsoluteLayout>
                                                 </Frame>
-                                            
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken7}"
@@ -253,7 +264,7 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken8}"
@@ -261,7 +272,7 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken9}"
@@ -269,7 +280,7 @@
                                                     </AbsoluteLayout>
                                                 </Frame>
 
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSuperAwoken10}"
@@ -280,14 +291,14 @@
 
                                             <!-- sync awoken -->
                                             <StackLayout Orientation="Horizontal" Spacing="1" WidthRequest="{Binding HideSyncAwoken}">
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSyncAwoken}"
                                                             AbsoluteLayout.LayoutBounds="1, 0, 3, 142"/>
                                                     </AbsoluteLayout>
                                                 </Frame>
-                                                <Frame CornerRadius="1" HeightRequest="20" WidthRequest="20" Padding="0" BackgroundColor="Transparent">
+                                                <Frame>
                                                     <AbsoluteLayout>
                                                         <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
                                                             IsVisible="{Binding HasSyncAwoken}"
