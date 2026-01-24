@@ -50,12 +50,7 @@ namespace PAD_Search
             Debug.WriteLine(attr3Id);
             Debug.WriteLine(typeId);
 
-            viewModel.attr1 = attr1Id;
-            viewModel.attr2 = attr2Id;
-            viewModel.attr3 = attr3Id;
-            viewModel.type = typeId;
-
-            //viewModel.Filter();
+            viewModel.FilterMonsters(attr1Id, attr2Id, attr3Id, typeId, null);
         }
 
         private void Reset_Button_Clicked(object sender, EventArgs e)
@@ -73,17 +68,45 @@ namespace PAD_Search
             god.IsChecked = false;
 
             selectedAwoken.Children.Clear();
+
+            RadioButtonGroup.SetSelectedValue(attr1, null);
+            RadioButtonGroup.SetSelectedValue(attr2, null);
+            RadioButtonGroup.SetSelectedValue(attr3, null);
+            RadioButtonGroup.SetSelectedValue(type, null);
         }
 
-        private void RadioButton_GestureRecognizer_Tapped(object sender, EventArgs e)
+        private void attr1_GestureRecognizer_Tapped(object sender, EventArgs e)
         {
             RadioButton button = (RadioButton)(((Frame)sender).Parent);
+            bool isChecked = RadioButtonToggle(button);
+            if (!isChecked) RadioButtonGroup.SetSelectedValue(attr1, null);
+        }
 
-            if (button.IsChecked)
-                button.IsChecked = false;
-            else
-                button.IsChecked = true;
+        private void attr2_GestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            RadioButton button = (RadioButton)(((Frame)sender).Parent);
+            bool isChecked = RadioButtonToggle(button);
+            if (!isChecked) RadioButtonGroup.SetSelectedValue(attr2, null);
+        }
 
+        private void attr3_GestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            RadioButton button = (RadioButton)(((Frame)sender).Parent);
+            bool isChecked = RadioButtonToggle(button);
+            if (!isChecked) RadioButtonGroup.SetSelectedValue(attr3, null);
+        }
+
+        private void type_GestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            RadioButton button = (RadioButton)(((Frame)sender).Parent);
+            bool isChecked = RadioButtonToggle(button);
+            if (!isChecked) RadioButtonGroup.SetSelectedValue(type, null);
+        }
+
+        private bool RadioButtonToggle(RadioButton button)
+        {
+            button.IsChecked = !button.IsChecked;
+            return button.IsChecked;
         }
 
         private void Awoken_GestureRecognizer_Tapped(object sender, EventArgs e)

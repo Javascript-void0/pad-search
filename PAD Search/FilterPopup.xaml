@@ -64,7 +64,7 @@
                                                            Aspect="AspectFill"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr1_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -79,7 +79,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr1_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -94,7 +94,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr1_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -109,7 +109,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr1_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -124,7 +124,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr1_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -139,7 +139,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr1_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -162,7 +162,7 @@
                                                            Aspect="AspectFill"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr2_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -177,7 +177,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr2_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -192,7 +192,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr2_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -207,7 +207,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr2_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -222,7 +222,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr2_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -237,7 +237,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr2_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -261,7 +261,7 @@
                                                            Aspect="AspectFill"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr3_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -276,7 +276,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr3_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -291,7 +291,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr3_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -306,7 +306,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr3_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -321,7 +321,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr3_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -336,7 +336,7 @@
                                                            AbsoluteLayout.LayoutFlags="All"/>
                                     </AbsoluteLayout>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                        <TapGestureRecognizer Tapped="attr3_GestureRecognizer_Tapped"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </RadioButton.Content>
@@ -356,7 +356,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -371,7 +371,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -386,7 +386,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -401,7 +401,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -416,7 +416,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -431,7 +431,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -446,7 +446,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -461,7 +461,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -476,7 +476,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -491,7 +491,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -506,7 +506,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>
@@ -521,7 +521,7 @@
                                                        AbsoluteLayout.LayoutFlags="All"/>
                                 </AbsoluteLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RadioButton_GestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer Tapped="type_GestureRecognizer_Tapped"/>
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </RadioButton.Content>

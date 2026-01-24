@@ -61,7 +61,7 @@ namespace PAD_Search
             string now = searchbar.Text;
             // search if length >= 2 or single digit
             if (prev == now && (now.Length >= 2 || "123456789".Contains(now))) // stopped typing after delay
-			    viewModel.SearchForMonsters(now);
+                viewModel.SearchMonsters(now);
 
             // scroll back up
             if (viewModel.LoadedMonsters.FirstOrDefault() != null)

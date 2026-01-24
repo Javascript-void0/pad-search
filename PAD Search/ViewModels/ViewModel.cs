@@ -17,6 +17,8 @@ namespace PAD_Search.ViewModels
         private const byte maxLoaded = 50;
         private static string lastSearch = "";
 
+        public Filter filter;
+
         private ObservableCollection<Monster> _loadedMonsters; // for subset of matches that are loaded (first 50)
         public ObservableCollection<Monster> LoadedMonsters
         {
@@ -38,6 +40,7 @@ namespace PAD_Search.ViewModels
         public ViewModel()
         {
             // Load Cards
+            filter = new Filter();
             monsters = JsonData.ReadJsonFromFile<Monster>(jsonMonFileName);
             Monster.skills = JsonData.ReadJsonFromFile<Skill>(jsonSkillFileName);
 
@@ -53,28 +56,45 @@ namespace PAD_Search.ViewModels
             //defaultLoaded = monsters;
 
             LoadedMonsters = new ObservableCollection<Monster>(defaultLoaded);
+            matched = monsters;
         }
 
-        public int? attr1, attr2, attr3, type;
-
-        public List<Monster> Filter(List<Monster> set, string input)
+        public List<Monster> FilterSet(List<Monster> set)
         {
-            return new List<Monster>(
-                set.Where( x => x.Name.ToLower().Contains(input.ToLower()) || 
-                        ("" + x.Id).Equals(input))
-                    //.Where(x => (attr1 != null && x.Attrs[0] == attr1) &&
-                    //            (attr2 != null && x.Attrs[1] == attr2) &&
-                    //            (attr3 != null && x.Attrs[2] == attr3) &&
-                    //            (type != null && x.Types.Contains((int)type)))
-            );
+            if (!lastSearch.Equals(""))
+                set = set.Where(x => x.Name.ToLower().Contains(filter.Search.ToLower()) ||
+                               ("" + x.Id).Equals(filter.Search))
+                         .ToList();
+
+            Debug.WriteLine(set.Count);
+
+            if (filter.Attr1 != null) set = set.Where(x => x.Attrs[0] == filter.Attr1).ToList();
+            if (filter.Attr2 != null) set = set.Where(x => x.Attrs.Count > 1 && x.Attrs[1] == filter.Attr2).ToList();
+            if (filter.Attr3 != null) set = set.Where(x => x.Attrs.Count > 2 && x.Attrs[2] == filter.Attr3).ToList();
+            if (filter.Type != null)  set = set.Where(x => x.Types.Contains((int)filter.Type)).ToList();
+
+            Debug.WriteLine(set.Count);
+            return set;
         }
 
-        public void SearchForMonsters(string input)
+        public void FilterMonsters(int? attr1, int? attr2, int? attr3, int? type, List<int> awakenings)
         {
-            if (input.Contains(lastSearch) && !lastSearch.Equals(""))
-                matched = Filter(matched, input);
+            filter.Attr1 = attr1;
+            filter.Attr2 = attr2;
+            filter.Attr3 = attr3;
+            filter.Type = type;
+            filter.Awawkenings = awakenings;
+
+            matched = FilterSet(monsters);
+            LoadedMonsters = new ObservableCollection<Monster>(matched.Take(maxLoaded).ToList());
+        }
+
+        public void SearchMonsters(string input)
+        {
+            if (input.Contains(lastSearch))
+                matched = FilterSet(matched);
             else
-                matched = Filter(monsters, input);
+                matched = FilterSet(monsters);
 
             LoadedMonsters = new ObservableCollection<Monster>( // take first 50
                 matched.Take(maxLoaded).ToList()
