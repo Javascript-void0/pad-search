@@ -816,8 +816,8 @@
                         </AbsoluteLayout> <Frame.GestureRecognizers> <TapGestureRecognizer Tapped="Awoken_GestureRecognizer_Tapped"/> </Frame.GestureRecognizers>
                     </Frame>
 
-                    <Frame BindingContext="28"> <AbsoluteLayout> <forms:CachedImage AbsoluteLayout.LayoutBounds="{Binding Converter={StaticResource awokenIdConverter}, 
-                                ConverterParameter={x:Int32 28}}"/>
+                    <Frame BindingContext="29"> <AbsoluteLayout> <forms:CachedImage AbsoluteLayout.LayoutBounds="{Binding Converter={StaticResource awokenIdConverter}, 
+                                ConverterParameter={x:Int32 29}}"/>
                         </AbsoluteLayout> <Frame.GestureRecognizers> <TapGestureRecognizer Tapped="Awoken_GestureRecognizer_Tapped"/> </Frame.GestureRecognizers>
                     </Frame>
 
@@ -1078,7 +1078,7 @@
                         </AbsoluteLayout> <Frame.GestureRecognizers> <TapGestureRecognizer Tapped="Awoken_GestureRecognizer_Tapped"/> </Frame.GestureRecognizers>
                     </Frame>
 
-                    <Frame BindingContext="121"> <AbsoluteLayout> <forms:CachedImage AbsoluteLayout.LayoutBounds="{Binding Converter={StaticResource awokenIdConverter}, 
+                    <Frame BindingContext="122"> <AbsoluteLayout> <forms:CachedImage AbsoluteLayout.LayoutBounds="{Binding Converter={StaticResource awokenIdConverter}, 
                                 ConverterParameter={x:Int32 122}}"/>
                         </AbsoluteLayout> <Frame.GestureRecognizers> <TapGestureRecognizer Tapped="Awoken_GestureRecognizer_Tapped"/> </Frame.GestureRecognizers>
                     </Frame>

@@ -59,12 +59,11 @@ namespace PAD_Search
                 typeId = int.Parse((string)RadioButtonGroup.GetSelectedValue(type));
             else typeId = null;
 
-            Debug.WriteLine(attr1Id);
-            Debug.WriteLine(attr2Id);
-            Debug.WriteLine(attr3Id);
-            Debug.WriteLine(typeId);
+            List<int> awakenings = new List<int>();
+            foreach (Frame child in selectedAwoken.Children)
+                awakenings.Add(int.Parse((string)child.BindingContext));
 
-            Filter filter = new Filter(attr1Id, attr2Id, attr3Id, typeId, null);
+            Filter filter = new Filter(attr1Id, attr2Id, attr3Id, typeId, awakenings);
             viewModel.FilterMonsters(filter);
 
             if (viewModel.LoadedMonsters.FirstOrDefault() != null)
@@ -140,7 +139,8 @@ namespace PAD_Search
                 Padding = 0,
                 BackgroundColor = Color.Transparent,
                 CornerRadius = 1,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                BindingContext = "" + awokenId
             };
             AbsoluteLayout a = new AbsoluteLayout();
             CachedImage img = new CachedImage() { Source = ImageSource.FromResource("PAD_Search.Images.awoken.png") };

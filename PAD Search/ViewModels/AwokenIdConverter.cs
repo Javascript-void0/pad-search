@@ -36,5 +36,39 @@ namespace PAD_Search.ViewModels
         {
             throw new NotImplementedException();
         }
+
+        private static List<int> DoubleAwakeningIds = new List<int>{ 56, 107, 111, 109, 96, 110, 108, 112, 113, 114, 97, 104, 98, 105, 73, 74, 75, 76, 77 };
+        private static List<int> SingleAwakeningIds = new List<int>{ 21, 43, 61, 48, 27, 78, 60, 126, 59, 45, 50, 29, 9, 20, 73, 74, 75, 76, 77 };
+        public static List<int> DecompressedAwakenings(List<int> awakenings)
+        {
+            List<int> decompressed = new List<int>();
+            foreach (int awakening in awakenings)
+            {
+                if (DoubleAwakeningIds.Contains(awakening))
+                {
+                    int index = DoubleAwakeningIds.IndexOf(awakening);
+                    decompressed.Add(SingleAwakeningIds[index]);
+                    decompressed.Add(SingleAwakeningIds[index]);
+                }
+                else
+                    decompressed.Add(awakening);
+            }
+            return decompressed;
+        }
+
+        public static bool ContainAwakenings(List<int> filter, List<int> awakenings)
+        {
+            foreach (int awakening in filter)
+            {
+                if (awakenings.Contains(awakening))
+                {
+                    awakenings.Remove(awakening);
+                }
+                else return false;
+            }
+            return true;
+
+        }
+
     }
 }

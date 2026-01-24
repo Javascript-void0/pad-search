@@ -4,6 +4,7 @@ using PAD_Search.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using Xamarin.Forms;
@@ -219,6 +220,17 @@ namespace PAD_Search.Models
 
         [JsonPropertyName("unevoMaterials")]
         public List<int> UnevoMaterials{ get; set; }
+
+        public List<int> DecompressedAwakenings
+        {
+            get
+            {
+                List<int> awakenings = new List<int>();
+                awakenings.AddRange(Awakenings);
+                awakenings.AddRange(SuperAwakenings);
+                return AwokenIdConverter.DecompressedAwakenings(awakenings);
+            }
+        }
 
         [JsonPropertyName("awakenings")]
         public List<int> Awakenings { get; set; }

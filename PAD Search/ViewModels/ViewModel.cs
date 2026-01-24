@@ -73,6 +73,11 @@ namespace PAD_Search.ViewModels
                 if (filter.Attr2 != null) set = set.Where(x => x.Attrs.Count > 1 && x.Attrs[1] == filter.Attr2).ToList();
                 if (filter.Attr3 != null) set = set.Where(x => x.Attrs.Count > 2 && x.Attrs[2] == filter.Attr3).ToList();
                 if (filter.Type != null)  set = set.Where(x => x.Types.Contains((int)filter.Type)).ToList();
+                if (filter.Awakenings != null)
+                {
+                    List<int> filterAwakenings = AwokenIdConverter.DecompressedAwakenings(filter.Awakenings);
+                    set = set.Where(x => AwokenIdConverter.ContainAwakenings(filterAwakenings, x.DecompressedAwakenings)).ToList();
+                }
                 filterMatched = set;
             }
 
