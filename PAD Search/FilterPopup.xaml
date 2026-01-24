@@ -1260,7 +1260,7 @@
         </ScrollView>
         <StackLayout Orientation="Horizontal" Spacing="10" Margin="10">
             <Button Text="Reset" HorizontalOptions="FillAndExpand" Clicked="Reset_Button_Clicked"/>
-            <Button Text="Filter" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Filter" HorizontalOptions="FillAndExpand" Clicked="Filter_Button_Clicked"/>
         </StackLayout>
     </StackLayout>
 </pages:PopupPage>

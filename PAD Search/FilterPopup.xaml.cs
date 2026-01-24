@@ -1,6 +1,7 @@
 ﻿using FFImageLoading.Forms;
 using PAD_Search.Models;
 using PAD_Search.ViewModels;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,7 +30,17 @@ namespace PAD_Search
         {
             base.OnDisappearing();
             Debug.WriteLine("popup disappear");
+            Filter();
+        }
 
+        private async void Filter_Button_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PopAsync();
+            Filter();
+        }
+
+        private void Filter()
+        {
             int? attr1Id, attr2Id, attr3Id, typeId;
 
             if (RadioButtonGroup.GetSelectedValue(attr1) != null)
