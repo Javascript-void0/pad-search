@@ -1,4 +1,5 @@
 ﻿using FFImageLoading.Forms;
+using PAD_Search.Models;
 using PAD_Search.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace PAD_Search
     public partial class FilterPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
         ViewModel viewModel;
-        public FilterPopup(ViewModel viewModel)
+        MainPage mainPage;
+        public FilterPopup(ViewModel viewModel, MainPage mainPage)
         {
             InitializeComponent();
             this.viewModel = viewModel;
+            this.mainPage = mainPage;
         }
 
         protected override void OnDisappearing()
@@ -50,7 +53,11 @@ namespace PAD_Search
             Debug.WriteLine(attr3Id);
             Debug.WriteLine(typeId);
 
-            viewModel.FilterMonsters(attr1Id, attr2Id, attr3Id, typeId, null);
+            Filter filter = new Filter(attr1Id, attr2Id, attr3Id, typeId, null);
+            viewModel.FilterMonsters(filter);
+
+            if (viewModel.LoadedMonsters.FirstOrDefault() != null)
+                mainPage.ResetScroll();
         }
 
         private void Reset_Button_Clicked(object sender, EventArgs e)

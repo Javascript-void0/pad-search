@@ -6,16 +6,19 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Xamarin.Forms;
 
 namespace PAD_Search.ViewModels
 {
     public class ViewModel : INotifyPropertyChanged
     {
         private static List<Monster> monsters = new List<Monster>(); // list of everything
-        private static List<Monster> matched = new List<Monster>(); // for everything that matches search query
+        private static List<Monster> searchMatched = new List<Monster>(); // for everything that matches search query
+        private static List<Monster> filterMatched = new List<Monster>(); // for everything that matches search query
         private static List<Monster> defaultLoaded = new List<Monster>();
         private const byte maxLoaded = 50;
         private static string lastSearch = "";
+        private static Filter lastFilter = new Filter();
 
         public Filter filter;
 
@@ -56,52 +59,63 @@ namespace PAD_Search.ViewModels
             //defaultLoaded = monsters;
 
             LoadedMonsters = new ObservableCollection<Monster>(defaultLoaded);
-            matched = monsters;
+            filterMatched = monsters;
+            searchMatched = monsters;
         }
 
-        public List<Monster> FilterSet(List<Monster> set)
+        public void FilterMonsters(Filter filter)
         {
-            if (!lastSearch.Equals(""))
-                set = set.Where(x => x.Name.ToLower().Contains(filter.Search.ToLower()) ||
-                               ("" + x.Id).Equals(filter.Search))
-                         .ToList();
+            List<Monster> set = filterMatched;
+            if (!filter.Equals(lastFilter)) // filter changed
+            {
+                set = monsters;
+                if (filter.Attr1 != null) set = set.Where(x => x.Attrs[0] == filter.Attr1).ToList();
+                if (filter.Attr2 != null) set = set.Where(x => x.Attrs.Count > 1 && x.Attrs[1] == filter.Attr2).ToList();
+                if (filter.Attr3 != null) set = set.Where(x => x.Attrs.Count > 2 && x.Attrs[2] == filter.Attr3).ToList();
+                if (filter.Type != null)  set = set.Where(x => x.Types.Contains((int)filter.Type)).ToList();
+                filterMatched = set;
+            }
 
             Debug.WriteLine(set.Count);
+            lastFilter = filter;
 
-            if (filter.Attr1 != null) set = set.Where(x => x.Attrs[0] == filter.Attr1).ToList();
-            if (filter.Attr2 != null) set = set.Where(x => x.Attrs.Count > 1 && x.Attrs[1] == filter.Attr2).ToList();
-            if (filter.Attr3 != null) set = set.Where(x => x.Attrs.Count > 2 && x.Attrs[2] == filter.Attr3).ToList();
-            if (filter.Type != null)  set = set.Where(x => x.Types.Contains((int)filter.Type)).ToList();
+            // apply search
+            LoadedMonsters = new ObservableCollection<Monster>
+                (
+                    set.Where(x => searchMatched.Contains(x))
+                       .Take(maxLoaded)
+                       .ToList()
+                );
+        }
+
+        public void ResetSearch()
+        {
+            LoadedMonsters = new ObservableCollection<Monster>(
+                filterMatched);
+        }
+
+        public void SearchMonsters(string search)
+        {
+            List<Monster> set = search.Contains(lastSearch) ? searchMatched : monsters;
+
+            if (!search.Equals(lastSearch))
+            {
+                set = set.Where(x => x.Name.ToLower().Contains(search.ToLower()) ||
+                                         ("" + x.Id).Equals(search))
+                                   .ToList();
+                searchMatched = set;
+            }
 
             Debug.WriteLine(set.Count);
-            return set;
-        }
+            lastSearch = search;
 
-        public void FilterMonsters(int? attr1, int? attr2, int? attr3, int? type, List<int> awakenings)
-        {
-            filter.Attr1 = attr1;
-            filter.Attr2 = attr2;
-            filter.Attr3 = attr3;
-            filter.Type = type;
-            filter.Awawkenings = awakenings;
+            // apply filters
+            LoadedMonsters = new ObservableCollection<Monster>(
+                set.Where(x => filterMatched.Contains(x))
+                   .Take(maxLoaded)
+                   .ToList()
+                );
 
-            matched = FilterSet(monsters);
-            LoadedMonsters = new ObservableCollection<Monster>(matched.Take(maxLoaded).ToList());
-        }
-
-        public void SearchMonsters(string input)
-        {
-            if (input.Contains(lastSearch))
-                matched = FilterSet(matched);
-            else
-                matched = FilterSet(monsters);
-
-            LoadedMonsters = new ObservableCollection<Monster>( // take first 50
-                matched.Take(maxLoaded).ToList()
-                //matched.ToList()
-            );
-
-            lastSearch = input;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

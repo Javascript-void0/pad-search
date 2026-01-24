@@ -34,7 +34,7 @@ namespace PAD_Search
 
             viewModel = new ViewModel();
             list.BindingContext = viewModel;
-            filterPopup = new FilterPopup(viewModel);
+            filterPopup = new FilterPopup(viewModel, this);
         }
 
         protected override void OnAppearing()
@@ -50,7 +50,7 @@ namespace PAD_Search
 
             if (prev == "" || prev == null)
             {
-                viewModel.LoadDefaultMonsters();
+                viewModel.ResetSearch();
                 clearButton.IsVisible = false;
             }
             else
@@ -65,13 +65,16 @@ namespace PAD_Search
 
             // scroll back up
             if (viewModel.LoadedMonsters.FirstOrDefault() != null)
-                list.ScrollTo(viewModel.LoadedMonsters.First(), ScrollToPosition.Start, false);
+                ResetScroll();
+        }
 
+        public void ResetScroll()
+        {
+            list.ScrollTo(viewModel.LoadedMonsters.First(), ScrollToPosition.Start, false);
         }
 
         private void Clear_Button_Clicked(object sender, EventArgs e)
         {
-            viewModel.LoadDefaultMonsters();
             searchbar.Text = string.Empty;
             clearButton.IsVisible = false;
         }
