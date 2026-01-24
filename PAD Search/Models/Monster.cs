@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace PAD_Search.Models
 {
-    internal class Monster
+    public class Monster
     {
         public HtmlWebViewSource Test
         {

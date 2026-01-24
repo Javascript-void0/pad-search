@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace PAD_Search.Models
 {
-    class SyncAwakeningCondition
+    public class SyncAwakeningCondition
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }

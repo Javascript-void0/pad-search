@@ -9,7 +9,7 @@ using System.Text;
 
 namespace PAD_Search.ViewModels
 {
-    class ViewModel : INotifyPropertyChanged
+    public class ViewModel : INotifyPropertyChanged
     {
         private static List<Monster> monsters = new List<Monster>(); // list of everything
         private static List<Monster> matched = new List<Monster>(); // for everything that matches search query
@@ -55,20 +55,26 @@ namespace PAD_Search.ViewModels
             LoadedMonsters = new ObservableCollection<Monster>(defaultLoaded);
         }
 
-        public List<Monster> matchInput(List<Monster> set, string input)
+        public int? attr1, attr2, attr3, type;
+
+        public List<Monster> Filter(List<Monster> set, string input)
         {
             return new List<Monster>(
-                set.Where(x => x.Name.ToLower().Contains(input.ToLower()) || 
-                    ("" + x.Id).Equals(input))
+                set.Where( x => x.Name.ToLower().Contains(input.ToLower()) || 
+                        ("" + x.Id).Equals(input))
+                    //.Where(x => (attr1 != null && x.Attrs[0] == attr1) &&
+                    //            (attr2 != null && x.Attrs[1] == attr2) &&
+                    //            (attr3 != null && x.Attrs[2] == attr3) &&
+                    //            (type != null && x.Types.Contains((int)type)))
             );
         }
 
         public void SearchForMonsters(string input)
         {
             if (input.Contains(lastSearch) && !lastSearch.Equals(""))
-                matched = matchInput(matched, input);
+                matched = Filter(matched, input);
             else
-                matched = matchInput(monsters, input);
+                matched = Filter(monsters, input);
 
             LoadedMonsters = new ObservableCollection<Monster>( // take first 50
                 matched.Take(maxLoaded).ToList()

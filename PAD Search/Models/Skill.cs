@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace PAD_Search.Models
 {
-    internal class Skill
+    public class Skill
     {
         [JsonPropertyName("id")]
         private int Id { get; set; }

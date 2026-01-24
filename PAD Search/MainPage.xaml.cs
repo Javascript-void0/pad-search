@@ -16,6 +16,7 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
+using Rg.Plugins.Popup.Exceptions;
 
 namespace PAD_Search
 {
@@ -33,7 +34,13 @@ namespace PAD_Search
 
             viewModel = new ViewModel();
             list.BindingContext = viewModel;
-            filterPopup = new FilterPopup();
+            filterPopup = new FilterPopup(viewModel);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Debug.WriteLine("mainpage appear");
         }
 
 
@@ -112,8 +119,15 @@ namespace PAD_Search
 
         private async void Filter_Button_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new FilterPopup());
-            await PopupNavigation.Instance.PushAsync(filterPopup);
+            try
+            {
+                //Navigation.PushAsync(new FilterPopup());
+                await PopupNavigation.Instance.PushAsync(filterPopup);
+            }
+            catch (RGPageInvalidException ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

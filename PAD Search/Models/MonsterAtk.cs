@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace PAD_Search.Models
 {
-    internal class MonsterAtk
+    public class MonsterAtk
     {
         [JsonPropertyName("min")]
         public int Min { get; set; }
