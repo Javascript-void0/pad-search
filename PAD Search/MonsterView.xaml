@@ -154,7 +154,7 @@
                     <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasLeaderSkill}">
                         <StackLayout>
                             <Label Text="{Binding LeaderSkillName, StringFormat='LS: {0}'}" FontAttributes="Bold" FontSize="15" TextColor="{Binding LeaderSkillAttrColor}"/>
-                            <Label Text="{Binding LeaderSkillDescription}" FontSize="15"/>
+                            <src:ExtendedWebView Source="{Binding LeaderSkillHtml}"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

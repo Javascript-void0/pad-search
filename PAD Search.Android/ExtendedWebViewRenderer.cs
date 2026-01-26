@@ -5,13 +5,14 @@ using PAD_Search.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using WebView = Android.Webkit.WebView;
+using System.Collections.Generic;
 
 [assembly: ExportRenderer(typeof(ExtendedWebView), typeof(ExtendedWebViewRenderer))]
 namespace PAD_Search.Droid
 {
     public class ExtendedWebViewRenderer : WebViewRenderer
     {
-        static ExtendedWebView _xwebView = null;
+        //static List<ExtendedWebView> _xwebViews = new List<ExtendedWebView>();
         WebView _webView;
         Context _context;
 
@@ -22,6 +23,11 @@ namespace PAD_Search.Droid
 
         class ExtendedWebViewClient : WebViewClient
         {
+            private ExtendedWebView _xwebView;
+            public ExtendedWebViewClient(ExtendedWebView _xwebView)
+            {
+                this._xwebView = _xwebView;
+            }
             public override async void OnPageFinished(WebView view, string url)
             {
                 if (_xwebView != null)
@@ -38,12 +44,12 @@ namespace PAD_Search.Droid
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.WebView> e)
         {
             base.OnElementChanged(e);
-            _xwebView = e.NewElement as ExtendedWebView;
             _webView = Control;
 
             if (e.OldElement == null)
             {
-                _webView.SetWebViewClient(new ExtendedWebViewClient());
+                _webView.SetWebViewClient(new ExtendedWebViewClient(
+                    e.NewElement as ExtendedWebView));
             }
         }
     }
