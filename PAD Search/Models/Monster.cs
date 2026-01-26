@@ -149,25 +149,6 @@ namespace PAD_Search.Models
         [JsonPropertyName("types")]
         public List<int> Types { get; set; }
 
-        public bool HasType2 { get { return Types.Count >= 2; } }
-
-        public bool HasType3 { get { return Types.Count >= 3; } }
-
-        private Rectangle typeDefaultBounds = new Rectangle(1, 1, 2, 16);
-        public Rectangle Type1Bounds { get { return TypeBounds(1); } }
-        public Rectangle Type2Bounds { get { return TypeBounds(2); } }
-        public Rectangle Type3Bounds { get { return TypeBounds(3); } }
-        private Rectangle TypeBounds(int i)
-        {
-            if (Types.Count < i) return typeDefaultBounds;
-            var x = 0;
-            var y = Types[i - 1];
-            if (y == 12 || y == 9) x = 1;
-            return new Rectangle(x, y / 15.0, 2, 16);
-
-        }
-
-
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
@@ -234,66 +215,9 @@ namespace PAD_Search.Models
 
         [JsonPropertyName("awakenings")]
         public List<int> Awakenings { get; set; }
-        public bool HasAwoken1 { get { return Awakenings.Count >= 1; } }
-        public bool HasAwoken2 { get { return Awakenings.Count >= 2; } }
-        public bool HasAwoken3 { get { return Awakenings.Count >= 3; } }
-        public bool HasAwoken4 { get { return Awakenings.Count >= 4; } }
-        public bool HasAwoken5 { get { return Awakenings.Count >= 5; } }
-        public bool HasAwoken6 { get { return Awakenings.Count >= 6; } }
-        public bool HasAwoken7 { get { return Awakenings.Count >= 7; } }
-        public bool HasAwoken8 { get { return Awakenings.Count >= 8; } }
-        public bool HasAwoken9 { get { return Awakenings.Count >= 9; } }
-        private Rectangle awokenDefault = new Rectangle(1, 1, 3, 142);
-        public Rectangle Awoken1Bounds { get { return AwokenBounds(1); } }
-        public Rectangle Awoken2Bounds { get { return AwokenBounds(2); } }
-        public Rectangle Awoken3Bounds { get { return AwokenBounds(3); } }
-        public Rectangle Awoken4Bounds { get { return AwokenBounds(4); } }
-        public Rectangle Awoken5Bounds { get { return AwokenBounds(5); } }
-        public Rectangle Awoken6Bounds { get { return AwokenBounds(6); } }
-        public Rectangle Awoken7Bounds { get { return AwokenBounds(7); } }
-        public Rectangle Awoken8Bounds { get { return AwokenBounds(8); } }
-        public Rectangle Awoken9Bounds { get { return AwokenBounds(9); } }
-
-        private Rectangle AwokenBounds(int i)
-        {
-            if (Awakenings.Count < i) return awokenDefault;
-            var x = 0;
-            var y = Awakenings[i - 1];
-            if (AwokenIdConverter.HasNAVersion(y)) x = 1;
-            return new Rectangle(x / 2.0, y / 141.0, 3, 142);
-        }
 
         [JsonPropertyName("superAwakenings")]
         public List<int> SuperAwakenings { get; set; }
-        public bool HasSuperAwoken1 { get { return SuperAwakenings.Count >= 1; } }
-        public bool HasSuperAwoken2 { get { return SuperAwakenings.Count >= 2; } }
-        public bool HasSuperAwoken3 { get { return SuperAwakenings.Count >= 3; } }
-        public bool HasSuperAwoken4 { get { return SuperAwakenings.Count >= 4; } }
-        public bool HasSuperAwoken5 { get { return SuperAwakenings.Count >= 5; } }
-        public bool HasSuperAwoken6 { get { return SuperAwakenings.Count >= 6; } }
-        public bool HasSuperAwoken7 { get { return SuperAwakenings.Count >= 7; } }
-        public bool HasSuperAwoken8 { get { return SuperAwakenings.Count >= 8; } }
-        public bool HasSuperAwoken9 { get { return SuperAwakenings.Count >= 9; } }
-        public bool HasSuperAwoken10 { get { return SuperAwakenings.Count >= 10; } }
-        public Rectangle SuperAwoken1Bounds { get { return SuperAwokenBounds(1); } }
-        public Rectangle SuperAwoken2Bounds { get { return SuperAwokenBounds(2); } }
-        public Rectangle SuperAwoken3Bounds { get { return SuperAwokenBounds(3); } }
-        public Rectangle SuperAwoken4Bounds { get { return SuperAwokenBounds(4); } }
-        public Rectangle SuperAwoken5Bounds { get { return SuperAwokenBounds(5); } }
-        public Rectangle SuperAwoken6Bounds { get { return SuperAwokenBounds(6); } }
-        public Rectangle SuperAwoken7Bounds { get { return SuperAwokenBounds(7); } }
-        public Rectangle SuperAwoken8Bounds { get { return SuperAwokenBounds(8); } }
-        public Rectangle SuperAwoken9Bounds { get { return SuperAwokenBounds(9); } }
-        public Rectangle SuperAwoken10Bounds { get { return SuperAwokenBounds(10); } }
-
-        private Rectangle SuperAwokenBounds(int i)
-        {
-            if (SuperAwakenings.Count < i) return awokenDefault;
-            var x = 0;
-            var y = SuperAwakenings[i - 1];
-            if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
-            return new Rectangle(x / 2.0, y / 141.0, 3, 142);
-        }
 
         [JsonPropertyName("evoRootId")]
         public int EvoRootId { get; set; }
@@ -334,8 +258,8 @@ namespace PAD_Search.Models
 
         //"specialAttribute": "",
 
-        [JsonPropertyName("searchFlags")]
-        public List<uint> SearchFlags { get; set; }
+        //[JsonPropertyName("searchFlags")]
+        //public List<uint> SearchFlags { get; set; }
 
         //"gachaGroupsFlag": 0,
         //"badgeId": 0,
@@ -351,7 +275,7 @@ namespace PAD_Search.Models
         {
             get
             {
-                if (SyncAwakening == null) return awokenDefault;
+                if (SyncAwakening == null) return new Rectangle(0, 0, 1, 1);
                 var x = 0;
                 var y = SyncAwakening;
                 if (y == 40 || y == 46 || y == 47 || y == 48 || y == 109) x = 1;
@@ -359,7 +283,6 @@ namespace PAD_Search.Models
             }
         }
 
-        public int HideSuperAwoken { get { return SuperAwakenings.Count == 0 ? 0 : 200 + 10; } }
         public int HideSyncAwoken { get { return SyncAwakening == null ? 0 : 40 + 2; } }
 
 

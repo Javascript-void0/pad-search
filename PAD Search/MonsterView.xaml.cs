@@ -18,9 +18,9 @@ namespace PAD_Search
 		public MonsterView(int id)
 		{
 			InitializeComponent();
-			BindingContext = this;
 			monster = ViewModel.GetMonster(id);
 			layout.BindingContext = monster;
+			Title = monster.Name;
 		}
 	}
 }

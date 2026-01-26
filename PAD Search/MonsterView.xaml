@@ -1,11 +1,164 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:src="clr-namespace:PAD_Search.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="PAD_Search.MonsterView">
+    <ContentPage.Resources>
+        <Style TargetType="forms:CachedImage">
+            <Setter Property="Aspect" Value="Fill"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout x:Name="layout" BindingContext="{Binding monster}">
-            <Label Text="{Binding Id}"/>
-            <Label Text="{Binding Name}"/>
-        </StackLayout>
+        <ScrollView x:Name="layout" BindingContext="{Binding monster}">
+            <Frame BackgroundColor="#141414" Margin="15" Padding="10" CornerRadius="10" VerticalOptions="Fill">
+                <StackLayout Spacing="10">
+
+                    <!-- top header -->
+                    <StackLayout HeightRequest="15" Orientation="Horizontal">
+                        <Label Text="{Binding Id, StringFormat='#{0}'}" HorizontalOptions="Start"/>
+                        <Label Text="{Binding Name}" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Rarity, StringFormat='★{0}'}" HorizontalOptions="End"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HeightRequest="80" Spacing="10">
+
+                        <!-- image -->
+                        <Frame WidthRequest="80" HeightRequest="80" Padding="0" 
+                            CornerRadius="7" VerticalOptions="Start">
+                            <AbsoluteLayout Background="#686868">
+                                <forms:CachedImage Source="{Binding ImageFile}"
+                                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                    Transformations="{Binding ImageTransform}"/>
+
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                                    AbsoluteLayout.LayoutBounds="{Binding FrameBounds1}"/>
+
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                                    IsVisible="{Binding HasSub2}"
+                                    AbsoluteLayout.LayoutBounds="{Binding FrameBounds2}"/>
+
+                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.CARDFRAME2.png}"
+                                    IsVisible="{Binding HasSub3}"
+                                    AbsoluteLayout.LayoutBounds="{Binding FrameBounds3}"/>
+                            </AbsoluteLayout>
+                        </Frame>
+
+                        <!-- hp/atk/rcv -->
+                        <Frame BackgroundColor="#1d1d1d" WidthRequest="50" Margin="0" Padding="7" CornerRadius="7">
+                            <StackLayout Spacing="0" Margin="1">
+                                <Label Text="{Binding Hp.Max}" HorizontalOptions="End" FontSize="17" VerticalOptions="Start"/>
+                                <Label Text="{Binding Atk.Max}" HorizontalOptions="End" FontSize="17" VerticalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Rcv.Max}" HorizontalOptions="End" FontSize="17" VerticalOptions="End"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout>
+                            <StackLayout.Resources>
+                                <ResourceDictionary>
+                                    <Style TargetType="Frame">
+                                        <Setter Property="CornerRadius" Value="1"/>
+                                        <Setter Property="HeightRequest" Value="20"/>
+                                        <Setter Property="WidthRequest" Value="20"/>
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="BackgroundColor" Value="Transparent"/>
+                                    </Style>
+                                </ResourceDictionary>
+                            </StackLayout.Resources>
+                            
+                            <!-- types -->
+                            <StackLayout Orientation="Horizontal" Spacing="1" BindableLayout.ItemsSource="{Binding Types}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame>
+                                            <AbsoluteLayout>
+                                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.type.png}"
+                                                    AbsoluteLayout.LayoutBounds="{Binding ., Converter={src:IdToTypeBoundConverter}}"/>
+                                            </AbsoluteLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <!-- awoken -->
+                            <StackLayout Orientation="Horizontal" Spacing="1" BindableLayout.ItemsSource="{Binding Awakenings}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame>
+                                            <AbsoluteLayout>
+                                                <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                    AbsoluteLayout.LayoutBounds="{Binding ., Converter={src:IdToAwakeningBoundConverter}}"/>
+                                            </AbsoluteLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Spacing="0">
+                                <!-- super awoken -->
+                                <StackLayout Orientation="Horizontal" Spacing="1" BindableLayout.ItemsSource="{Binding SuperAwakenings}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame>
+                                                <AbsoluteLayout>
+                                                    <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                        AbsoluteLayout.LayoutBounds="{Binding ., Converter={src:IdToAwakeningBoundConverter}}"/>
+                                                </AbsoluteLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+
+                                <!-- sync awoken -->
+                                <StackLayout Orientation="Horizontal" Spacing="1" WidthRequest="{Binding HideSyncAwoken}">
+                                    <Frame>
+                                        <AbsoluteLayout>
+                                            <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                IsVisible="{Binding HasSyncAwoken}"
+                                                AbsoluteLayout.LayoutBounds="1, 0, 3, 142"/>
+                                        </AbsoluteLayout>
+                                    </Frame>
+                                    <Frame>
+                                        <AbsoluteLayout>
+                                            <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.awoken.png}"
+                                                IsVisible="{Binding HasSyncAwoken}"
+                                                AbsoluteLayout.LayoutBounds="{Binding SyncAwokenBounds}"/>
+                                        </AbsoluteLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <!-- active skill -->
+                    <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasActiveSkill}">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ActiveSkillName, StringFormat='AS: {0}'}" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="15"/>
+                                <Label HorizontalOptions="End" HorizontalTextAlignment="End">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="Level: {0} / Turns: {1}">
+                                            <Binding Path="ActiveSkillMaxLevel"/>
+                                            <Binding Path="ActiveSkillCooldown"/>
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                            </StackLayout>
+                            <Label Text="{Binding ActiveSkillDescription}" FontSize="15"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- leader skill -->
+                    <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasLeaderSkill}">
+                        <StackLayout>
+                            <Label Text="{Binding LeaderSkillName, StringFormat='LS: {0}'}" FontAttributes="Bold" FontSize="15" TextColor="{Binding LeaderSkillAttrColor}"/>
+                            <Label Text="{Binding LeaderSkillDescription}" FontSize="15"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
