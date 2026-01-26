@@ -133,28 +133,59 @@
                     </StackLayout>
 
                     <!-- active skill -->
-                    <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasActiveSkill}">
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding ActiveSkillName, StringFormat='AS: {0}'}" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="15"/>
-                                <Label HorizontalOptions="End" HorizontalTextAlignment="End">
-                                    <Label.Text>
-                                        <MultiBinding StringFormat="Level: {0} / Turns: {1}">
-                                            <Binding Path="ActiveSkillMaxLevel"/>
-                                            <Binding Path="ActiveSkillCooldown"/>
-                                        </MultiBinding>
-                                    </Label.Text>
-                                </Label>
+                    <StackLayout BindableLayout.ItemsSource="{Binding ActiveSkillLine}" Spacing="10" Padding="0" Margin="0">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10">
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name, StringFormat='AS: {0}'}" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="15"/>
+                                            <Label HorizontalOptions="End" HorizontalTextAlignment="End" MinimumWidthRequest="100" FontSize="15">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="Level: {0} / Turns: {1}">
+                                                        <Binding Path="MaxLevel"/>
+                                                        <Binding Path="Cooldown"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                        </StackLayout>
+                                        <src:ExtendedWebView Source="{Binding HtmlDescription}"/>
+                                        <StackLayout Orientation="Horizontal" Spacing="0" IsVisible="{Binding IsLoopSkill}">
+                                            <forms:CachedImage Source="{src:ImageResource PAD_Search.Images.icon-evolved-skill-loop.png}"
+                                                HeightRequest="15" Aspect="AspectFill" VerticalOptions="Center"/>
+                                            <Label Text="Returns to " FontSize="15" Margin="5,0,0,0"/>
+                                            <Label Text="Stage 1" FontSize="15" FontAttributes="Bold"/>
+                                            <Label Text=" after use" FontSize="15"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                        <!--
+                        <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasActiveSkill}">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding ActiveSkill.Name, StringFormat='AS: {0}'}" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="15"/>
+                                    <Label HorizontalOptions="End" HorizontalTextAlignment="End">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="Level: {0} / Turns: {1}">
+                                                <Binding Path="ActiveSkill.MaxLevel"/>
+                                                <Binding Path="ActiveSkillCooldown"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                </StackLayout>
+                                <src:ExtendedWebView Source="{Binding ActiveSkillHtml}"/>
                             </StackLayout>
-                            <src:ExtendedWebView Source="{Binding ActiveSkillHtml}"/>
-                        </StackLayout>
-                    </Frame>
+                        </Frame>
+                        -->
+                    </StackLayout>
 
                     <!-- leader skill -->
                     <Frame BackgroundColor="#1d1d1d" CornerRadius="7" Padding="10" IsVisible="{Binding HasLeaderSkill}">
                         <StackLayout>
-                            <Label Text="{Binding LeaderSkillName, StringFormat='LS: {0}'}" FontAttributes="Bold" FontSize="15" TextColor="{Binding LeaderSkillAttrColor}"/>
-                            <src:ExtendedWebView Source="{Binding LeaderSkillHtml}"/>
+                            <Label Text="{Binding LeaderSkill.Name, StringFormat='LS: {0}'}" FontAttributes="Bold" FontSize="15" TextColor="{Binding LeaderSkillAttrColor}"/>
+                            <src:ExtendedWebView Source="{Binding LeaderSkill.HtmlDescription}"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

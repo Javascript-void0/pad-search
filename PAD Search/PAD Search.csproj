@@ -17,6 +17,7 @@
     <None Remove="Images\CARDFRAME2.png" />
     <None Remove="Images\dragon-totem.png" />
     <None Remove="Images\filter.png" />
+    <None Remove="Images\icon-evolved-skill-loop.png" />
     <None Remove="Images\icon-orbs.png" />
     <None Remove="Images\square-x.png" />
     <None Remove="Images\type.png" />
@@ -162,6 +163,7 @@
     <EmbeddedResource Include="Images\CARDFRAME2.png" />
     <EmbeddedResource Include="Images\dragon-totem.png" />
     <EmbeddedResource Include="Images\filter.png" />
+    <EmbeddedResource Include="Images\icon-evolved-skill-loop.png" />
     <EmbeddedResource Include="Images\icon-orbs.png" />
   </ItemGroup>
 

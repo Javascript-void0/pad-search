@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PAD_Search.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
+using Xamarin.Forms;
 
 namespace PAD_Search.Models
 {
@@ -28,12 +30,14 @@ namespace PAD_Search.Models
 
         [JsonPropertyName("initialCooldown")]
         public int InitialCooldown { get; set; }
+        public int Cooldown { get { return InitialCooldown - MaxLevel + 1; } }
 
         //"unk": "",
-        //"params": [
-        //    1,
-        //    1000
-        //]
+        [JsonPropertyName("params")]
+        public List<int> Params { get; set; }
 
+        public HtmlWebViewSource HtmlDescription { get { return SkillDescriptionAsHtml.ToHtml(Description); } }
+
+        public bool IsLoopSkill { get; set; }
     }
 }

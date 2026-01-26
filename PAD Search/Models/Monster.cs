@@ -77,16 +77,28 @@ namespace PAD_Search.Models
         public bool HasSub3 { get { return Attrs.Count >= 3; } }
 
         public bool HasActiveSkill { get { return ActiveSkillId != 0; } }
-        public string ActiveSkillName { get { return skills[ActiveSkillId].Name; } }
-        public string ActiveSkillDescription { get { return skills[ActiveSkillId].Description; } }
-        public int ActiveSkillMaxLevel { get { return skills[ActiveSkillId].MaxLevel; } }
-        public int ActiveSkillCooldown { get { return skills[ActiveSkillId].InitialCooldown - ActiveSkillMaxLevel + 1; } }
-        public HtmlWebViewSource ActiveSkillHtml { get { return SkillDescriptionAsHtml.ToHtml(skills[ActiveSkillId].Description); } }
+        public Skill ActiveSkill { get { return skills[ActiveSkillId]; } }
+        public List<Skill> ActiveSkillLine
+        {
+            get
+            {
+                int skillType = ActiveSkill.Type;
+                if (skillType != 232 && skillType != 233)
+                    return new List<Skill>() { ActiveSkill };
+
+                List<Skill> line = new List<Skill>();
+                foreach (int skillId in ActiveSkill.Params)
+                    line.Add(skills[skillId]);
+
+                if (skillType == 233) // loop skill
+                    line.Last().IsLoopSkill = true;
+                        
+                return line;
+            }
+        }
 
         public bool HasLeaderSkill { get { return LeaderSkillId != 0; } }
-        public string LeaderSkillName { get { return skills[LeaderSkillId].Name; } }
-        public string LeaderSkillDescription { get { return skills[LeaderSkillId].Description; } }
-        public HtmlWebViewSource LeaderSkillHtml { get { return SkillDescriptionAsHtml.ToHtml(skills[LeaderSkillId].Description); } }
+        public Skill LeaderSkill { get { return skills[LeaderSkillId]; } }
         public Color LeaderSkillAttrColor
         {
             get
