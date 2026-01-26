@@ -13,41 +13,6 @@ namespace PAD_Search.Models
 {
     public class Monster
     {
-        public HtmlWebViewSource Test
-        {
-            get
-            {
-                var html = @"
-<html>
-    <body>
-        <style>
-            :root { --size: 15 }
-            body { background-color: #1d1d1d }
-            span { font-size: var(--size); color: white }
-            .icon {
-                width: var(--size);
-                height: var(--size);
-                background-image: url('icon-orbs.png');
-                background-size: 200% 1000%;
-                background-position: 0% 22.222222%;
-                background-repeat: none;
-                aspect-ratio: 50 / 50;
-                display: inline-block;
-                color: transparent;
-            }
-        </style>
-        <span>" + new Random().Next(1, 100) + @"Removes {locks},\nchanges </span>
-        <span class=""icon"">.</span>
-        <span>{Jammers}{Poison}{Lethal Poison}{Bombs} to {Water}</span>
-    </body>
-</html>";
-                var source = new HtmlWebViewSource();
-                source.BaseUrl = "file:///android_asset/";
-                source.Html = html;
-                return source;
-            }
-        }
-
         private int imageCols = 10;
         public static List<Skill> skills = new List<Skill>();
         private Rectangle frameDefaultBounds = new Rectangle(1, 1, 7, 4);
@@ -116,10 +81,12 @@ namespace PAD_Search.Models
         public string ActiveSkillDescription { get { return skills[ActiveSkillId].Description; } }
         public int ActiveSkillMaxLevel { get { return skills[ActiveSkillId].MaxLevel; } }
         public int ActiveSkillCooldown { get { return skills[ActiveSkillId].InitialCooldown - ActiveSkillMaxLevel + 1; } }
+        public HtmlWebViewSource ActiveSkillHtml { get { return SkillDescriptionAsHtml.ToHtml(skills[ActiveSkillId].Description); } }
 
         public bool HasLeaderSkill { get { return LeaderSkillId != 0; } }
         public string LeaderSkillName { get { return skills[LeaderSkillId].Name; } }
         public string LeaderSkillDescription { get { return skills[LeaderSkillId].Description; } }
+        public HtmlWebViewSource LeaderSkillHtml { get { return SkillDescriptionAsHtml.ToHtml(skills[LeaderSkillId].Description); } }
         public Color LeaderSkillAttrColor
         {
             get

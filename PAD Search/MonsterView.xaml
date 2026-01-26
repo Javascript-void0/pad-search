@@ -146,7 +146,7 @@
                                     </Label.Text>
                                 </Label>
                             </StackLayout>
-                            <Label Text="{Binding ActiveSkillDescription}" FontSize="15"/>
+                            <src:ExtendedWebView Source="{Binding ActiveSkillHtml}"/>
                         </StackLayout>
                     </Frame>
 

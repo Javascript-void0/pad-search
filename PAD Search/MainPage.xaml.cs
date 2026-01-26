@@ -79,41 +79,6 @@ namespace PAD_Search
             clearButton.IsVisible = false;
         }
 
-        public HtmlWebViewSource Test
-        {
-            get
-            {
-                var html = @"
-<html>
-    <body>
-        <style>
-            :root { --size: 15 }
-            body { background-color: #1d1d1d }
-            span { font-size: var(--size); color: white }
-            .icon {
-                width: var(--size);
-                height: var(--size);
-                background-image: url('icon-orbs.png');
-                background-size: 200% 1000%;
-                background-position: 0% 22.222222%;
-                background-repeat: none;
-                aspect-ratio: 50 / 50;
-                display: inline-block;
-                color: transparent;
-            }
-        </style>
-        <span>Removes {locks},\nchanges </span>
-        <span class=""icon"">.</span>
-        <span>{Jammers}{Poison}{Lethal Poison}{Bombs} to {Water}</span>
-    </body>
-</html>";
-                var source = new HtmlWebViewSource();
-                source.BaseUrl = "file:///android_asset/";
-                source.Html = html;
-                return source;
-            }
-        }
-
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             int id = (int)((TappedEventArgs)e).Parameter - 1; // compensate for removing index 0 place holder

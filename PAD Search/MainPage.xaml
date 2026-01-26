@@ -10,13 +10,6 @@
             <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
         </Style>
     </ContentPage.Resources>
-        <!--
-        <Image Source="{src:ImageResource PAD_Search.Images.dragon-totem.png}" 
-               Opacity="0.2"
-               Aspect="AspectFit"
-               AbsoluteLayout.LayoutBounds="0.5,0,1.5,1"
-               AbsoluteLayout.LayoutFlags="All"/>
-        -->
     <StackLayout Spacing="0">
         <StackLayout Orientation="Horizontal" Padding="15,15,15,15" Spacing="8" BackgroundColor="#202020" HeightRequest="50">
             <StackLayout.Resources>
@@ -31,10 +24,6 @@
                    Margin="0" HorizontalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
             <ImageButton x:Name="clearButton" Source="{src:ImageResource PAD_Search.Images.square-x.png}" IsVisible="false" Clicked="Clear_Button_Clicked"/>
             <ImageButton Source="{src:ImageResource PAD_Search.Images.filter.png}" Clicked="Filter_Button_Clicked"/>
-            <!--
-            <Frame CornerRadius="7" BackgroundColor="#20000000" Padding="0" HeightRequest="50" WidthRequest="50" HorizontalOptions="End">
-            </Frame>
-            -->
         </StackLayout>
 
         <ListView x:Name="list" ItemsSource="{Binding LoadedMonsters}"
